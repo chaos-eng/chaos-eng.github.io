@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Principles of Chaos Engineering</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68131502-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ddbeb28b-841c-417b-9240-a42b1b20d522", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<style type="text/css">
+      body {
+        font-family: arial, sans, sans-serif;
+        margin: 0;
+      }
+
+      iframe {
+        border: 0;
+        frameborder: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      #header, #footer {
+        background: #f0f0f0;
+        padding: 10px 10px;
+      }
+
+      #header {
+        border-bottom: 1px #ccc solid;
+      }
+
+      #footer {
+        border-top: 1px #ccc solid;
+        border-bottom: 1px #ccc solid;
+        font-size: 13;
+      }
+
+      #contents {
+        margin: 4em auto;
+        width: 40em;
+      }
+
+      .dash {
+        padding: 0 6px;
+      }
+    </style></head>
+<body>
+<div id="contents"><style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?kit=VdzaRt4WQn_rvT97iDToL43qJkZ0mILFEVSiyyQMWHIibyMe4ukfvPvpfYEqkIMW');ol.lst-kix_tgmutpd37h0c-7.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-7 0}ol.lst-kix_tgmutpd37h0c-0.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-0 0}ol.lst-kix_tgmutpd37h0c-5.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-5 0}.lst-kix_tgmutpd37h0c-0>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-0}.lst-kix_tgmutpd37h0c-3>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-3}.lst-kix_tgmutpd37h0c-6>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-6}ol.lst-kix_tgmutpd37h0c-8.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-8 0}.lst-kix_tgmutpd37h0c-5>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-5,lower-roman) ". "}ol.lst-kix_tgmutpd37h0c-3.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-3 0}.lst-kix_tgmutpd37h0c-4>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-4,lower-latin) ". "}ol.lst-kix_tgmutpd37h0c-1.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-1 0}.lst-kix_tgmutpd37h0c-8>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-8}.lst-kix_tgmutpd37h0c-1>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-1,lower-latin) ". "}.lst-kix_tgmutpd37h0c-3>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-3,decimal) ". "}.lst-kix_tgmutpd37h0c-2>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-2}ol.lst-kix_tgmutpd37h0c-6.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-6 0}.lst-kix_tgmutpd37h0c-2>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-2,lower-roman) ". "}.lst-kix_tgmutpd37h0c-6>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-6,decimal) ". "}.lst-kix_tgmutpd37h0c-7>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-7,lower-latin) ". "}.lst-kix_tgmutpd37h0c-5>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-5}.lst-kix_tgmutpd37h0c-0>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-0,decimal) ". "}.lst-kix_tgmutpd37h0c-8>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-8,lower-roman) ". "}ol.lst-kix_tgmutpd37h0c-2{list-style-type:none}ol.lst-kix_tgmutpd37h0c-1{list-style-type:none}ol.lst-kix_tgmutpd37h0c-4{list-style-type:none}ol.lst-kix_tgmutpd37h0c-3{list-style-type:none}ol.lst-kix_tgmutpd37h0c-0{list-style-type:none}ol.lst-kix_tgmutpd37h0c-4.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-4 0}ol.lst-kix_tgmutpd37h0c-2.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-2 0}.lst-kix_tgmutpd37h0c-4>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-4}.lst-kix_tgmutpd37h0c-7>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-7}.lst-kix_tgmutpd37h0c-1>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-1}ol.lst-kix_tgmutpd37h0c-6{list-style-type:none}ol.lst-kix_tgmutpd37h0c-5{list-style-type:none}ol.lst-kix_tgmutpd37h0c-8{list-style-type:none}ol.lst-kix_tgmutpd37h0c-7{list-style-type:none}ol{margin:0;padding:0}.c4{line-height:1.4;font-size:13pt;font-family:"Source Sans Pro";font-style:italic;color:#999999;font-weight:normal}.c1{orphans:2;widows:2;text-align:justify;direction:ltr;height:11pt}.c5{font-size:24pt;font-family:"Montserrat";color:#3d85c6;font-weight:bold}.c19{font-size:13pt;font-family:"Source Sans Pro";color:#999999;font-weight:normal}.c18{orphans:2;widows:2;text-align:center;direction:ltr}.c2{font-size:10pt;orphans:2;widows:2;text-align:justify;direction:ltr}.c21{orphans:2;widows:2;direction:ltr;height:11pt}.c17{font-size:18pt;font-family:"Source Sans Pro";color:#3c78d8;font-weight:normal}.c14{font-size:24pt;font-family:"Montserrat";color:#434343;font-weight:bold}.c16{padding-top:18pt;page-break-after:avoid;text-align:center;direction:ltr}.c13{font-size:14pt;font-family:"Source Sans Pro";color:#6fa8dc;text-decoration:none}.c15{margin-bottom: 0.7em;margin-left:27pt;padding-top:0pt;margin-right:45pt}.c0{font-size:10pt;font-family:"Source Sans Pro";color:#434343}.c7{background-color:#ffffff;max-width:468pt;padding:72pt 72pt 72pt 72pt}.c6{margin-left:2em;margin-right:2em;padding-left:0pt}.c9{margin-left:36pt;margin-right:45pt}.c3{font-size:10pt;font-family:"Source Sans Pro"}.c10{background-color:#ffffff;color:#222222}.c20{padding:0;margin:0}.c12{page-break-after:avoid}.c8{margin-right:36pt}.c11{font-style:italic}.title{padding-top:0pt;color:#000000;font-size:21pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:13pt;padding-bottom:10pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:10pt;color:#000000;font-size:16pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:10pt;color:#000000;font-weight:bold;font-size:13pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:8pt;color:#666666;font-weight:bold;font-size:12pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style>
+
+<p class="c18"><span class="c5">PRINCIPLES OF CHAOS ENGINEERING</span></p>
+<p class="c18"><span class="c0">Last Update: 2015 September</span></p>
+<h3 class="c16"><span class="c4">Chaos Engineering is the discipline of experimenting on a distributed system<br>
+in order to build confidence in the system’s capability<br>
+to withstand turbulent conditions in production.</span></h3>
+
+<p class="c1"></p><p class="c2"><span class="c0">Advances in large-scale, distributed software systems are changing the game for software engineering. &nbsp;As an industry, we are quick to adopt practices that increase flexibility of development and velocity of deployment. &nbsp;An urgent question follows on the heels of these benefits: How much confidence we can have in the complex systems that we put into production?</span></p>
+<p class="c1"><span class="c0"></span></p><p class="c2"><span class="c3 c10">Even when all of the individual services in a distributed system are functioning properly, the interactions between those services can cause unpredictable outcomes. &nbsp;Unpredictable outcomes, compounded by rare but disruptive real-world events that affect production environments, make these distributed systems inherently chaotic.</span></p><p class="c1"><span class="c3 c10"></span></p>
+<p class="c2"><span class="c3 c10">We need to identify weaknesses before they manifest in system-wide, aberrant behaviors.</span><span class="c0">&nbsp; Systemic weaknesses could take the form of:</span><span class="c0">&nbsp;improper fallback settings when a service is unavailable; retry storms from improperly tuned timeouts; outages when a downstream dependency receives too much traffic; cascading failures when a single point of failure crashes; etc</span><span class="c0">. &nbsp;We must address the most significant weaknesses proactively, before they affect our customers in production. &nbsp;We need a way to manage the chaos inherent in these systems, take advantage of increasing flexibility and velocity, and have confidence in our production deployments despite the complexity that they represent.</span></p>
+<p class="c1"><span class="c0"></span></p><p class="c2"><span class="c0">An empirical, </span><span class="c0">systems-based approach</span><span class="c0">&nbsp;addresses the chaos in distributed systems at scale and builds confidence in the ability of those systems to withstand realistic conditions. &nbsp;</span><span class="c0">We learn about the behavior of a distributed system by </span><span class="c0">observing </span><span class="c0">it during a controlled experiment. &nbsp;We call this </span><span class="c0 c11">Chaos Engineering</span><span class="c0">.</span></p>
+<p class="c1"><span class="c3"></span></p>
+<h3 class="c2 c12"><a name="h.4zuknwz5zjdm"></a><span class="c17">CHAOS IN PRACTICE</span></h3>
+<p class="c2"><span class="c3">To specifically address the uncertainty of distributed systems at scale, Chaos Engineering can be thought of as the facilitation of experiments to uncover systemic weaknesses. &nbsp;These experiments follow four steps:</span></p>
+<ol class="c20 lst-kix_tgmutpd37h0c-0 start" start="1">
+<li class="c2 c6"><span class="c3">Start by defining ‘steady state’ as some measurable output of a system that indicates normal behavior.</span></li>
+<li class="c2 c6"><span class="c3">Hypothesize that this steady state will continue in both the control group and the experimental group.</span></li>
+<li class="c2 c6"><span class="c3">Introduce variables that reflect real world events like servers that crash, hard drives that malfunction, network connections that are severed, etc.</span></li>
+<li class="c2 c6"><span class="c3">Try to disprove the hypothesis by looking for a difference in steady state between the control group and the experimental group.</span></li>
+</ol>
+<p class="c2"><span class="c3">The harder it is to disrupt the steady state, the more confidence we have in the behavior of the system. &nbsp;If a weakness is uncovered, we now have a target for improvement before that behavior manifests in the system at large.</span></p>
+<p class="c1"><span class="c0"></span></p>
+<h3 class="c2 c12"><a name="h.pbt9yqhet2a1"></a><span class="c17">ADVANCED PRINCIPLES</span></h3>
+<p class="c2"><span class="c0">The following principles describe an ideal application of Chaos Engineering, applied to the processes of experimentation described above. &nbsp;The degree to which these principles are pursued strongly correlates to the confidence we can have in a distributed system at scale.</span></p>
+<h4 class="c2 c15"><a name="h.aor3c2didy5z"></a><span class="c13">Build a Hypothesis around Steady State Behavior</span></h4><p class="c2 c9"><span class="c0">Focus on the </span><span class="c0">measurable output</span><span class="c0">&nbsp;of a system, rather than internal attributes of the system. &nbsp;Measurements of that output over a short period of time constitute a proxy for the system’s steady state.</span><span class="c0">&nbsp; The overall system’s throughput, error rates, latency percentiles, etc. could all be metrics of interest representing steady state behavior. &nbsp;By focusing on systemic behavior patterns during experiments, </span><span class="c0">Chaos verifies that the system </span><span class="c0 c11">does</span><span class="c0">&nbsp;work, rather than trying to validate </span><span class="c0 c11">how</span><span class="c0">&nbsp;it works.</span></p>
+<h4 class="c2 c15"><a name="h.xx9pyjy8b6fj"></a><span class="c13">Vary Real-world Events</span></h4>
+<p class="c2 c9"><span class="c0">Chaos variables reflect real-world events. &nbsp;Prioritize events either by potential impact or estimated frequency</span><span class="c0">.</span><span class="c0">&nbsp; Consider events that correspond to hardware failures like servers dying, </span><span class="c0">software failures like malformed responses</span><span class="c0">, and non-failure events like a spike in traffic or a scaling event. &nbsp;Any event capable of disrupting steady state is a potential variable in a Chaos experiment.</span></p>
+<h4 class="c2 c15"><a name="h.vb69dlzcejn7"></a><span class="c13">Run Experiments in Production</span></h4><p class="c2 c9"><span class="c0">Systems behave differently depending on environment and traffic patterns. &nbsp;Since the behavior of utilization can change at any time, sampling real traffic is the only way to reliably capture the request path. &nbsp;To guarantee both authenticity of the way in which the system is exercised and relevance to the current deployed system, </span><span class="c0">Chaos strongly prefers to experiment directly on production traffic</span><span class="c0">.</span></p>
+<h4 class="c2 c15"><a name="h.j261x4z5mpi0"></a><span class="c13">Automate Experiments to Run Continuously</span></h4><p class="c2 c9"><span class="c0">Running experiments manually is labor-intensive and ultimately unsustainable. &nbsp;Automate experiments and run them continuously. &nbsp;Chaos Engineering builds automation into the system to drive both orchestration and analysis.</span></p>
+<p class="c1"><span class="c0"></span></p>
+<p class="c2"><span class="c0">Chaos Engineering is a powerful practice that is already changing how software is designed and engineered at some of the largest-scale operations in the world. &nbsp;Where other practices address velocity and flexibility, Chaos specifically tackles systemic uncertainty in these distributed systems. &nbsp;The Principles of Chaos provide confidence to innovate quickly at massive scales and give customers the high quality experiences they deserve.</span></p><p class="c21"><span></span></p>
+
+<p class="c1"><span class="c0"></span></p>
+<p class="c2">
+<span class='st_facebook_hcount' displayText='Facebook'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_linkedin_hcount' displayText='LinkedIn'></span>
+<span class='st_pinterest_hcount' displayText='Pinterest'></span>
+<span class='st_email_hcount' displayText='Email'></span>
+</p>
+</div>
+</body>
+</html>
