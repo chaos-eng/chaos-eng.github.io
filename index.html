@@ -12,6 +12,29 @@
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">
+
+/** Toggle function to show or hide a div
+* @parameter anId string is of the element to show or hide
+*/
+function toggle(anId)
+{
+	node = document.getElementById(anId);
+	if (node.style.visibility=="hidden")
+	{
+		// Element is hidden, show it
+		node.style.visibility = "visible";
+		node.style.height = "auto";			
+	}
+	else
+	{
+		// Element is visble, hide it
+		node.style.visibility = "hidden";
+		node.style.height = "0";			
+	}
+}
+</script>
+
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "ddbeb28b-841c-417b-9240-a42b1b20d522", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
@@ -43,7 +66,7 @@
         font-size: 13;
       }
 
-      #contents {
+      #contents,#socialcount {
         margin: 4em auto;
         width: 40em;
       }
@@ -54,9 +77,9 @@
     </style></head>
 <body>
 <div id="contents"><style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?kit=VdzaRt4WQn_rvT97iDToL43qJkZ0mILFEVSiyyQMWHIibyMe4ukfvPvpfYEqkIMW');ol.lst-kix_tgmutpd37h0c-7.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-7 0}ol.lst-kix_tgmutpd37h0c-0.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-0 0}ol.lst-kix_tgmutpd37h0c-5.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-5 0}.lst-kix_tgmutpd37h0c-0>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-0}.lst-kix_tgmutpd37h0c-3>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-3}.lst-kix_tgmutpd37h0c-6>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-6}ol.lst-kix_tgmutpd37h0c-8.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-8 0}.lst-kix_tgmutpd37h0c-5>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-5,lower-roman) ". "}ol.lst-kix_tgmutpd37h0c-3.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-3 0}.lst-kix_tgmutpd37h0c-4>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-4,lower-latin) ". "}ol.lst-kix_tgmutpd37h0c-1.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-1 0}.lst-kix_tgmutpd37h0c-8>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-8}.lst-kix_tgmutpd37h0c-1>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-1,lower-latin) ". "}.lst-kix_tgmutpd37h0c-3>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-3,decimal) ". "}.lst-kix_tgmutpd37h0c-2>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-2}ol.lst-kix_tgmutpd37h0c-6.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-6 0}.lst-kix_tgmutpd37h0c-2>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-2,lower-roman) ". "}.lst-kix_tgmutpd37h0c-6>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-6,decimal) ". "}.lst-kix_tgmutpd37h0c-7>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-7,lower-latin) ". "}.lst-kix_tgmutpd37h0c-5>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-5}.lst-kix_tgmutpd37h0c-0>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-0,decimal) ". "}.lst-kix_tgmutpd37h0c-8>li:before{content:"" counter(lst-ctn-kix_tgmutpd37h0c-8,lower-roman) ". "}ol.lst-kix_tgmutpd37h0c-2{list-style-type:none}ol.lst-kix_tgmutpd37h0c-1{list-style-type:none}ol.lst-kix_tgmutpd37h0c-4{list-style-type:none}ol.lst-kix_tgmutpd37h0c-3{list-style-type:none}ol.lst-kix_tgmutpd37h0c-0{list-style-type:none}ol.lst-kix_tgmutpd37h0c-4.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-4 0}ol.lst-kix_tgmutpd37h0c-2.start{counter-reset:lst-ctn-kix_tgmutpd37h0c-2 0}.lst-kix_tgmutpd37h0c-4>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-4}.lst-kix_tgmutpd37h0c-7>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-7}.lst-kix_tgmutpd37h0c-1>li{counter-increment:lst-ctn-kix_tgmutpd37h0c-1}ol.lst-kix_tgmutpd37h0c-6{list-style-type:none}ol.lst-kix_tgmutpd37h0c-5{list-style-type:none}ol.lst-kix_tgmutpd37h0c-8{list-style-type:none}ol.lst-kix_tgmutpd37h0c-7{list-style-type:none}ol{margin:0;padding:0}.c4{line-height:1.4;font-size:13pt;font-family:"Source Sans Pro";font-style:italic;color:#999999;font-weight:normal}.c1{orphans:2;widows:2;text-align:justify;direction:ltr;height:11pt}.c5{font-size:24pt;font-family:"Montserrat";color:#3d85c6;font-weight:bold}.c19{font-size:13pt;font-family:"Source Sans Pro";color:#999999;font-weight:normal}.c18{orphans:2;widows:2;text-align:center;direction:ltr}.c2{font-size:10pt;orphans:2;widows:2;text-align:justify;direction:ltr}.c21{orphans:2;widows:2;direction:ltr;height:11pt}.c17{font-size:18pt;font-family:"Source Sans Pro";color:#3c78d8;font-weight:normal}.c14{font-size:24pt;font-family:"Montserrat";color:#434343;font-weight:bold}.c16{padding-top:18pt;page-break-after:avoid;text-align:center;direction:ltr}.c13{font-size:14pt;font-family:"Source Sans Pro";color:#6fa8dc;text-decoration:none}.c15{margin-bottom: 0.7em;margin-left:27pt;padding-top:0pt;margin-right:45pt}.c0{font-size:10pt;font-family:"Source Sans Pro";color:#434343}.c7{background-color:#ffffff;max-width:468pt;padding:72pt 72pt 72pt 72pt}.c6{margin-left:2em;margin-right:2em;padding-left:0pt}.c9{margin-left:36pt;margin-right:45pt}.c3{font-size:10pt;font-family:"Source Sans Pro"}.c10{background-color:#ffffff;color:#222222}.c20{padding:0;margin:0}.c12{page-break-after:avoid}.c8{margin-right:36pt}.c11{font-style:italic}.title{padding-top:0pt;color:#000000;font-size:21pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:13pt;padding-bottom:10pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:10pt;color:#000000;font-size:16pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:10pt;color:#000000;font-weight:bold;font-size:13pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:8pt;color:#666666;font-weight:bold;font-size:12pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:8pt;color:#666666;font-size:11pt;padding-bottom:0pt;font-family:"Trebuchet MS";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style>
-
+<div id="ENcontent">
 <p class="c18"><span class="c5">PRINCIPLES OF CHAOS ENGINEERING</span></p>
-<p class="c18"><span class="c0">Last Update: 2018 April</span></p>
+<p class="c18"><span class="c0">Last Update: 2018 May</span></p>
 <h3 class="c16"><span class="c4">Chaos Engineering is the discipline of experimenting on a distributed system<br>
 in order to build confidence in the system’s capability<br>
 to withstand turbulent conditions in production.</span></h3>
@@ -88,11 +111,51 @@ to withstand turbulent conditions in production.</span></h3>
 <p class="c2"><span class="c0">Chaos Engineering is a powerful practice that is already changing how software is designed and engineered at some of the largest-scale operations in the world. &nbsp;Where other practices address velocity and flexibility, Chaos specifically tackles systemic uncertainty in these distributed systems. &nbsp;The Principles of Chaos provide confidence to innovate quickly at massive scales and give customers the high quality experiences they deserve.</span></p><p class="c21"><span></span></p>
 <p class="c2"><span class="c0">Join the ongoing discussion of the Principles of Chaos and their application in the <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a> Google Group.</span></p>
 <p class="c1"><span class="c0"></span></p>
-<p class="c2">Translations: <a
+<p class="c2">Translations: <a href="#" onclick = "toggle('ENcontent');toggle('FRcontent')">FR</a> | <a
     href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
     (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a><br>
     If you want to add your translation, please submit a pull request against
     the <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a>.</p>
+</div>
+<div id="FRcontent" style="visibility:hidden;height:0">
+<p class="c18"><span class="c5">PRINCIPES D’INGENIERIE DU CHAOS </span></p>
+<p class="c18"><span class="c0">Mise à jour : Mai 2018 </span></p>
+<h3 class="c16"><span class="c4">L’Ingénierie du Chaos est une discipline de l’expérimentation sur un système distribué afin de renforcer la confiance dans la capacité du système à résister à des conditions turbulentes en production. </span></h3>
+
+<p class="c1"></p><p class="c2"><span class="c0">Les progrès dans les systèmes logiciels distribués à grande échelle changent le jeu pour l'ingénierie logicielle. En tant qu'industrie, nous adoptons rapidement des pratiques qui augmentent la flexibilité de développement et la rapidité de déploiement. Une question urgente émerge alors de ces évolutions : Quelle confiance pouvons-nous avoir dans les systèmes complexes que nous mettons en production ?</span></p>
+<p class="c1"><span class="c0"></span></p><p class="c2"><span class="c3 c10">Même lorsque chacun des services d'un système réparti fonctionne individuellement correctement, les interactions entre ces services peuvent entraîner des résultats imprévisibles. Des résultats imprévisibles, aggravés par des événements rares mais perturbateurs du monde réel qui affectent les environnements de production, et rendent ces systèmes distribués intrinsèquement chaotiques.</span></p><p class="c1"><span class="c3 c10"></span></p>
+<p class="c2"><span class="c3 c10">Nous devons identifier les faiblesses avant qu'elles ne se manifestent dans des comportements aberrants à l'échelle du système. Les faiblesses systémiques peuvent prendre la forme de : paramètres de fallback inadéquats lorsqu'un service est indisponible ; tentative de reprise avec effets cataclysmique à la suite de timeout incorrectement réglées ; pannes lorsqu'une dépendance en aval reçoit trop de trafic ; échecs en cascade à la suite de la défaillance d’un seul point ; etc. </span><span class="c0">. &nbsp;Nous devons aborder les faiblesses les plus significatives de manière proactive, avant qu'elles n'affectent nos clients en production. Nous avons besoin d'un moyen de gérer le chaos inhérent à ces systèmes, de tirer parti de la flexibilité et de la vitesse croissantes, et de faire confiance à nos déploiements de production malgré la complexité qu'ils représentent.</span></p>
+<p class="c1"><span class="c0"></span></p><p class="c2"><span class="c0">Une approche empirique basée sur les systèmes aborde le chaos dans les systèmes distribués à grande échelle et renforce la confiance dans la capacité de ces systèmes à résister aux conditions du monde réel. Nous apprenons le comportement d'un système distribué en l'observant lors d'une expérience contrôlée. Nous appelons cela l'</span><span class="c0 c11">Ingénierie du Chaos.</span><span class="c0">.</span></p>
+<p class="c1"><span class="c3"></span></p>
+<h3 class="c2 c12"><a name="h.4zuknwz5zjdm"></a><span class="c17">CHAOS EN PRATIQUE</span></h3>
+<p class="c2"><span class="c3">Pour répondre spécifiquement à l'incertitude des systèmes distribués à grande échelle, l'Ingénierie du Chaos peut être considérée comme la facilitation d’expériences pour découvrir les faiblesses systémiques. Ces expériences suivent quatre étapes :</span></p>
+<ol class="c20 lst-kix_tgmutpd37h0c-0 start" start="1">
+<li class="c2 c6"><span class="c3">Définir un « état stable » comme une sortie mesurable d'un système qui indique un comportement normal.</span></li>
+<li class="c2 c6"><span class="c3">Faire l’hypothèse que cet état d'équilibre se poursuivra dans le groupe témoin et dans le groupe expérimental.</span></li>
+<li class="c2 c6"><span class="c3">Introduire des variations qui reflètent des événements réels, tels que les serveurs en panne, les disques durs défectueux, les connexions réseau coupées, etc.</span></li>
+<li class="c2 c6"><span class="c3">Tenter de réfuter l'hypothèse en recherchant une différence d'état d'équilibre entre le groupe témoin et le groupe expérimental. </span></li>
+</ol>
+<p class="c2"><span class="c3">Plus il est difficile de perturber l'état stable, plus nous avons confiance dans le comportement du système. Si une faiblesse est découverte, nous avons maintenant un objectif d'amélioration pour éviter que ce comportement ne se manifeste un jour.</span></p>
+<p class="c1"><span class="c0"></span></p>
+<h3 class="c2 c12"><a name="h.pbt9yqhet2a1"></a><span class="c17">PRINCIPES AVANCÉS</span></h3>
+<p class="c2"><span class="c0">Les principes suivants décrivent une application idéale de l’Ingénierie du Chaos, en appliquant le processus d'expérimentation décrits ci-dessus. Le degré d’application de ces principes est fortement corrélé à la confiance que nous pouvons avoir dans un système distribué à grande échelle.</span></p>
+<h4 class="c2 c15"><a name="h.aor3c2didy5z"></a><span class="c13">Définir l’hypothèse “Etat Stable” </span></h4><p class="c2 c9"><span class="c0">Il est préférable de se concentrer sur la sortie mesurable d'un système plutôt que sur les attributs internes du système. Il faut ensuite effectuer ces mesures sur une courte période de temps afin de définir les valeurs constituant l'état stationnaire du système. Le débit global du système, les taux d'erreur, les percentiles de latence, etc. sont tous des indicateurs intéressant sur le comportement en régime nominal. En se concentrant sur les modèles de comportement systémique pendant les expériences d’ingénierie du Chaos, on vérifie </span><span class="c0 c11">que le système fonctionne</span><span class="c0">, plutôt que d'essayer de valider </span><span class="c0 c11">comment il fonctionne</span><span class="c0">.</span></p>
+<h4 class="c2 c15"><a name="h.xx9pyjy8b6fj"></a><span class="c13">Multiplier les événements réels</span></h4>
+<p class="c2 c9"><span class="c0">Les variations d’événements Chaotiques permettent de refléter le monde réel. Il faut alors hiérarchiser les événements soit par impact potentiel ou fréquence estimée. Prenez en compte les événements qui correspondent à des défaillances matérielles telles que la mort des serveurs, les défaillances logicielles telles que les réponses mal formées et les événements sans échec tels qu'un pic de trafic ou un événement de mise à l'échelle. Tout événement capable de perturber l'état d'équilibre est une variable potentielle dans une expérience Chaos.</span></p>
+<h4 class="c2 c15"><a name="h.vb69dlzcejn7"></a><span class="c13">Effectuer des expérimentations en Production</span></h4><p class="c2 c9"><span class="c0">Les systèmes se comportent différemment selon l'environnement et les modèles de trafic. Comme le comportement d'utilisation peut changer à tout moment, l'échantillonnage du trafic réel est le seul moyen de capturer un modèle de requêtes de manière fiable. Pour garantir à la fois l'authenticité de la manière dont le système est utilisé et la pertinence par rapport au système déployé actuel, l’Ingénieur du Chaos préfère fortement expérimenter directement le trafic de production.</span><span class="c0">.</span></p>
+<h4 class="c2 c15"><a name="h.j261x4z5mpi0"></a><span class="c13">Automatiser les expérimentations pour les lancer en continu</span></h4><p class="c2 c9"><span class="c0">L’exécution des expériences manuellement nécessite beaucoup de main-d'œuvre et n'est finalement pas viable. Il est fortement recommandé d’automatisez les expériences pour pouvoir les exécuter en continu. L’Ingénierie du Chaos intègre l'automatisation dans le système pour piloter à la fois l'orchestration et l'analyse.</span></p>
+<h4 class="c2 c15"><span class="c13">Minimiser le rayon de l’explosion</span></h4><p class="c2 c9"><span class="c0">Lorsqu’on expérimente en production, on peut potentiellement causer des impacts inutiles aux clients. Même s'il doit y avoir une tolérance à un impact négatif à court terme, l'Ingénieur du Chaos a la responsabilité et l'obligation de s'assurer que les retombées des expériences sont minimisées et contenues.</span></p>
+<p class="c1"><span class="c0"></span></p>
+<p class="c2"><span class="c0">L’Ingénierie du Chaos est une pratique puissante qui change déjà la façon dont les logiciels sont conçus et fabriqués dans le cadre de certaines des plus grandes opérations au monde. Là où d'autres pratiques traitent de la vitesse et de la flexibilité, le Chaos s'attaque spécifiquement à l'incertitude systémique des systèmes distribués. Les Principes du Chaos fournissent la confiance nécessaire pour innover rapidement à grande échelle et offrir aux clients un expériences avec le niveau de haute qualité qu'ils méritent.</span></p><p class="c21"><span></span></p>
+<p class="c2"><span class="c0">Vous pouvez nous rejoindre pour échanger sur ces principes du Chaos et leur mise en application dans le groupe Google <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a>.</span></p>
+<p class="c1"><span class="c0"></span></p>
+<p class="c2">Traductions: <a href="#" onclick = "toggle('FRcontent');toggle('ENcontent')">EN</a> | <a
+    href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
+    (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a><br>
+    Si vous souhaitez contribuer en ajoutant votre traduction, vous pouvez soumettre une pull request dans ce <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github</a>.</p>
+</div>
+</div>
+<div id="socialcount">
 <p class="c1"><span class="c0"></span></p>
 <p class="c2">
 <span class='st_facebook_hcount' displayText='Facebook'></span>
