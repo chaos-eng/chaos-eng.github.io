@@ -113,7 +113,7 @@ to withstand turbulent conditions in production.</span></h3>
 <p class="c1"><span class="c0"></span></p>
 <p class="c2">Translations: <a href="#" onclick = "toggle('ENcontent');toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ENcontent');toggle('RUcontent')">RU</a> | <a
     href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
-    (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a><br>
+    (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('ENcontent');toggle('TRcontent')">TR</a><br>
     If you want to add your translation, please submit a pull request against
     the <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a>.</p>
 </div>
@@ -194,7 +194,48 @@ to withstand turbulent conditions in production.</span></h3>
         href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
         (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a><br><p class="c0"><span>&#1045;&#1089;&#1083;&#1080; &#1074;&#1099; &#1093;&#1086;&#1090;&#1080;&#1090;&#1077; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1089;&#1074;&#1086;&#1081; &#1087;&#1077;&#1088;&#1077;&#1074;&#1086;&#1076;, &#1087;&#1086;&#1078;&#1072;&#1083;&#1091;&#1081;&#1089;&#1090;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1100;&#1090;&#1077; &#1087;&#1091;&#1083;&#1083;-&#1088;&#1077;&#1082;&#1074;&#1077;&#1089;&#1090; &#1074;</span><span><a  href="https://github.com/chaos-eng/chaos-eng.github.io/&amp;sa=D&amp;ust=1527967088968000">&nbsp;</a></span><span class="c4"><a href="https://github.com/chaos-eng/chaos-eng.github.io/&amp;sa=D&amp;ust=1527967088968000">Github</a></p>
 </div>
+<div id="TRcontent" style="visibility:hidden;height:0">
+  <p class="c18"><span class="c5">KAOS MÜHENDİSLİĞİNİN PRENSİPLERİ</span></p>
+  <p class="c18"><span class="c0">Son Güncelleme: Mayıs 2018</span></p>
+  <h3 class="c16"><span class="c4">Kaos Mühendisliği, canlı ortamda oluşabilecek<br>
+  çalkantılı koşullara dayanma kabiliyetine olan güveni artırmak için<br>
+  dağıtık bir sistem üzerinde deney yapma disiplinidir.</span></h3>
+  
+  <p class="c1"></p><p class="c2"><span class="c0">Büyük ölçekli dağıtık sistemlerdeki gelişmeler, yazılım mühendisliği alanında oyunun kurallarını değiştirmekteler. Endüstri olarak, geliştirmenin esnekliğini ve dağıtımın sıklığını artıran değişiklikleri hızlı biçimde benimsiyoruz. Bu değişikliklerin getirdiği avantajları önemli bir soru takip ediyor: Canlı ortamlara sunduğumuz kompleks sistemlere ne kadar güvenebiliriz ?</span></p>
+  <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c3 c10">Dağıtık bir sistemdeki tüm servisler ayrı ayrı düzgün çalışıyor olsalar bile, bu servislerin arasındaki ilişkiler beklenmeyen sonuçlar doğurabilirler. Beklenmeyen sonuçlar, canlı ortamları etkileyen nadir fakat yıkıcı gerçek dünya olayları ile birleştiklerinde, dağıtık sistemler doğal olarak kaotik olurlar.</span></p><p class="c1"><span class="c3 c10"></span></p>
+  <p class="c2"><span class="c3 c10">Zayıflıkları, sistem çapında anormal davranışlara dönüşmeden önce tanımlamamız gerekir. Sistemsel zayıflıklar: servisin kullanım dışı kalması durumunda geri dönüş planlarının düzgün çalışmamasına sebep olan ayarlar; Yanlış ayarlanmış zaman aşımı süreleri sebebiyle oluşan yeniden deneme kuyrukları; Fazla trafikten kaynaklanan kesintiler; "Tek hata noktası" durumlarının üst üste gelmesi ve benzeri durumlar olarak ortaya çıkabilir. Müşterilerimizin canlı ortamlarını etkilemeden önce, en önemli zayıflıkları proaktif olarak ele almalıyız. Bu sistemlerdeki kaosu yönetmenin, artan esneklik ve hızın avantajlarını kullanmanın ve kompleksitelerine rağmen canlı ortamlarımıza olan güveni artırmanın bir yolunu bulmalıyız.</span></p>
+  <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c0">Ampirik, sistem tabanlı bir yaklaşım, dağıtık sistemlerdeki kaosu ölçeklendirir ve bu sistemlerin gerçekçi koşullara dayanma becerisine olan güveni artırır. Bizler, dağıtık bir sistemin davranışlarını, kontrollü bir deney ile gözlemleyerek öğreniyoruz. Biz buna </span><span class="c0 c11">Kaos Mühendisliği </span><span class="c0">diyoruz.</span></p>
+  <p class="c1"><span class="c3"></span></p>
+  <h3 class="c2 c12"><a name="h.4zuknwz5zjdm"></a><span class="c17">UYGULAMADA KAOS</span></h3>
+  <p class="c2"><span class="c3">Büyük Ölçekli Dağıtık sistemlerin belirsizliklerini özellikle ele almak için, Kaos Mühendisliği, sistemik zayıflıkları ortaya çıkarmak amaçlı deneylerin kolaylaştırılması olarak düşünülebilir. Bu deneyler dört adımdan oluşur:</span></p>
+  <ol class="c20 lst-kix_tgmutpd37h0c-0 start" start="1">
+  <li class="c2 c6"><span class="c3">Normal davranış gösteren bir sistemin ölçülebilir durumunu "Kararlı Çalışma Durumu" olarak tanımlayın.</span></li>
+  <li class="c2 c6"><span class="c3">Bu kararlı durumun hem kontrol grubunda hem de deney grubunda devam edeceğini varsayın.</span></li>
+  <li class="c2 c6"><span class="c3">Çalışmayı durduran sunucular, arıza yapan sabit diskler, kesilen ağ bağlantıları vb. gerçek dünya olaylarını yansıtan değişkenleri tanımlayın.</span></li>
+  <li class="c2 c6"><span class="c3">Kontrol grubu ile deney grubu arasındaki "Kararlı Çalışma Durumu"nda bir farklılık arayarak varsayımınızı çürütmeye çalışın.</span></li>
+  </ol>
+  <p class="c2"><span class="c3">İstikrarlı Durumu bozmak ne kadar zor ise, sistemin davranışına olan güvenimiz o kadar fazladır. Eğer bir zayıflık tespit edersek, bu zayıflık tüm sistem genelinde problem teşkil etmeden önce düzeltme yapmayı kendimize hedef belirlememiz gerekir.</span></p>
+  <p class="c1"><span class="c0"></span></p>
+  <h3 class="c2 c12"><a name="h.pbt9yqhet2a1"></a><span class="c17">İLERİ DÜZEY PRENSİPLER</span></h3>
+  <p class="c2"><span class="c0">Aşağıdaki ilkeler, yukarıda tarif edilen deney süreçlerine uygulanan ideal bir Kaos Mühendisliği uygulamasını tanımlar. Bu ilkelerin izlenme derecesi, ölçeklendirilmiş bir sistemde sahip olabileceğimiz güven ile güçlü bir şekilde ilişkilidir.</span></p>
+  <h4 class="c2 c15"><a name="h.aor3c2didy5z"></a><span class="c13">Kararlı Çalışma Durumu Üzerine Bir Hipotez Oluşturun</span></h4><p class="c2 c9"><span class="c0">Sistemin iç öznitelikleri yerine bir sistemin ölçülebilir çıktısına odaklanın. Bu çıktının kısa bir süre içindeki ölçümleri, sistemin kararlı durumu için bir örnek oluşturur. Sistem genelindeki iş hacmi, hata oranları, gecikme yüzdeleri vb. kararlı durum davranışını temsil eden ölçütler olabilirler. Kaos, denemeler sırasında sistemik davranış kalıplarına odaklanarak, sistemin nasıl çalıştığını doğrulamaktan ziyade sistemin çalıştığını doğrular.</span></p>
+  <h4 class="c2 c15"><a name="h.xx9pyjy8b6fj"></a><span class="c13">Gerçek Dünya Olaylarını Çeşitlendirin</span></h4>
+  <p class="c2 c9"><span class="c0">Kaos değişkenleri gerçek dünya olaylarını yansıtır. Olayları ya potansiyel etki ya da tahmini sıklık ile önceliklendirin. Sunucuların çökmesi gibi donanımsal hatalar, hatalı cevap dönüşleri gibi yazılım hataları ve trafikte artış ya da ölçekleme problemi gibi hata olmayan olayları göz önünde bulundurun. Kararlı durumu bozabilecek herhangi bir olay, bir Kaos deneyinde potansiyel bir değişkendir.</span></p>
+  <h4 class="c2 c15"><a name="h.vb69dlzcejn7"></a><span class="c13">Canlı Ortamda Deneyler Yapın</span></h4><p class="c2 c9"><span class="c0">Sistemler, ortam ve trafik modellerine bağlı olarak farklı davranır. Kullanım davranışı her an değişebileceğinden, talep yoğunluğunu güvenilir şekilde yakalamanın tek yolu gerçek trafiği örneklemektir. Sistemin uygulandığı yöntemlerin gerçekliğini ve mevcut konuşlandırılmış sistemle alaka düzeyini garanti etmek için, Kaos, doğrudan canlı ortam trafiği üzerinde denemeler yapmayı tercih eder.</span></p>
+  <h4 class="c2 c15"><a name="h.j261x4z5mpi0"></a><span class="c13">Deneyleri Sürekli Çalışacak Şekilde Otomatize Edin</span></h4><p class="c2 c9"><span class="c0">Deneyleri manuel çalıştırmak, iş gücü ister ve sonuç olarak sürdürülemezdir. Deneyleri otomatikleştirin ve sürekli olarak çalıştırın. Chaos Engineering, hem orkestrasyon hem de analiz için sistemin otomatize edilmesini sağlar.</span></p>
+  <h4 class="c2 c15"><span class="c13">Patlama Alanını Küçültün</span></h4><p class="c2 c9"><span class="c0">Canlı ortamda deney yapmak gereksiz müşteri acılarına neden olma potansiyeline sahiptir. Bazı kısa vadeli olumsuz etkiler için bir tolerans payı ayırılması gerekliliğiyle birlikte, deneylerden kaynaklanan hasarların en aza indirilmesini ve içerilmesini sağlamak Kaos Mühendisi'nin sorumluluğu ve yükümlülüğüdür.</span></p>
+  <p class="c1"><span class="c0"></span></p>
+  <p class="c2"><span class="c0">Kaos Mühendisliği, dünya çapındaki pek çok çok-büyük ölçekli operasyonda, yazılımın nasıl tasarlandığını değiştirmekte olan güçlü bir uygulamadır. Diğer metotlar hız ve esnekliğe hitap etmekte iken, Kaos, özellikle  dağıtık sistemlerde sistemik belirsizliği ele alır. Kaos İlkeleri, kitlesel ölçeklerde hızlı bir şekilde yenilik yapmaya ve müşterilere hak ettikleri yüksek kaliteli deneyimleri vermek üzere sistemlere olan güveni artırmayı hedefler.</span></p><p class="c21"><span></span></p>
+  <p class="c2"><span class="c0"><a href="https://groups.google.com/forum/#!forum/chaos-community">Kaos Topluluğu</a> Google Grubunda, Kaos İlkeleri ve bunların uygulamaları üzerine devam eden tartışmalara katılın.</span></p>
+  <p class="c1"><span class="c0"></span></p>
+  <p class="c2">Translations: <a href="#" onclick = "toggle('ENcontent');toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ENcontent');toggle('RUcontent')">RU</a> | <a
+      href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
+      (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent');toggle('ENcontent')">EN</a><br>
+      If you want to add your translation, please submit a pull request against
+      the <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a>.</p>
+  </div>
 </div>
+
 
 <div id="socialcount">
 <p class="c1"><span class="c0"></span></p>
