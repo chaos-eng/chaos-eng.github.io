@@ -12,23 +12,6 @@
   ga('send', 'pageview');
 
 </script>
-<script type="text/javascript">
-
-/** Toggle function to show or hide a div
-* @parameter anId string is of the element to show or hide
-*/
-function toggle(contentId) {
-	var contents = Array.prototype.slice.call(document.querySelectorAll('#contents > div'));
-	contents.map(function (c) {
-		c.style.visibility = "hidden"
-		c.style.display = 'none'
-		c.style.height = '0px'
-	})
-	document.getElementById(contentId).style.visibility = 'visible'
-	document.getElementById(contentId).style.display = 'block'
-	document.getElementById(contentId).style.height = 'auto'
-}
-</script>
 
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
@@ -288,5 +271,35 @@ to withstand turbulent conditions in production.</span></h3>
 <span class='st_email_hcount' displayText='Email'></span>
 </p>
 </div>
+
+<script type="text/javascript">
+
+/** Toggle function to show or hide a div
+* @parameter anId string is of the element to show or hide
+*/
+function toggle(contentId) {
+	var contents = Array.prototype.slice.call(document.querySelectorAll('#contents > div'));
+	contents.map(function (c) {
+		c.style.visibility = "hidden"
+		c.style.display = 'none'
+		c.style.height = '0px'
+	})
+	document.getElementById(contentId).style.visibility = 'visible'
+	document.getElementById(contentId).style.display = 'block'
+	document.getElementById(contentId).style.height = 'auto'
+}
+
+/* link directly to a language in the url: ?lang=FRcontent */
+if (window.location.search && window.location.search.indexOf('lang=') > -1) {
+	var language = window.location.search.split('lang=')[1];
+	if (language.indexOf('&') > -1) {
+		language = language.split('&')[0];
+	}
+	if (document.getElementById(language)) {
+		toggle(language);
+	}
+}
+</script>
+
 </body>
 </html>
