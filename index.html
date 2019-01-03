@@ -513,13 +513,15 @@ to withstand turbulent conditions in production.</span></h3>
     function toggle(contentId) {
         var contents = Array.prototype.slice.call(document.querySelectorAll('#contents > div'));
         contents.map(function (c) {
-            c.style.visibility = "hidden"
-            c.style.display = 'none'
-            c.style.height = '0px'
-        })
-        document.getElementById(contentId).style.visibility = 'visible'
-        document.getElementById(contentId).style.display = 'block'
-        document.getElementById(contentId).style.height = 'auto'
+            c.style.visibility = "hidden";
+            c.style.display = 'none';
+            c.style.height = '0px';
+        });
+        document.getElementById(contentId).style.visibility = 'visible';
+        document.getElementById(contentId).style.display = 'block';
+        document.getElementById(contentId).style.height = 'auto';
+
+        window.history.replaceState({}, '', '?lang=' + contentId);
     }
 
     /* link directly to a language in the url: ?lang=FRcontent */
