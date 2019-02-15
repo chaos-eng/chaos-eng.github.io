@@ -90,13 +90,62 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c2"><span class="c0">Chaos Engineering is a powerful practice that is already changing how software is designed and engineered at some of the largest-scale operations in the world. &nbsp;Where other practices address velocity and flexibility, Chaos specifically tackles systemic uncertainty in these distributed systems. &nbsp;The Principles of Chaos provide confidence to innovate quickly at massive scales and give customers the high quality experiences they deserve.</span></p><p class="c21"><span></span></p>
         <p class="c2"><span class="c0">Join the ongoing discussion of the Principles of Chaos and their application in the <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a> Google Group.</span></p>
         <p class="c1"><span class="c0"></span></p>
-        <p class="c2">Translations: <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
+        <p class="c2">Translations: <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('DEcontent')">DE</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
                 href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent')">TR</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a> | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a>
             <br>
             If you want to add your translation, please submit a pull request against
             the <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a>.</p>
     </div>
+
+    <!-- Start of German version -->
+    <div id="DEcontent" style="visibility:hidden;height:0;display:none;">
+        <p class="c18"><span class="c5">PRINZIPIEN DES CHAOS ENGINEERINGS</span></p>
+        <p class="c18"><span class="c0">Letzte Aktualisierung: Mai 2018</span></p>
+        <h3 class="c16"><span class="c4">Chaos Engineering führt Experimente auf einem verteilten System durch, um Vertrauen in das System aufzubauen auch unter widrigen Umständen in der Produktivumgebung zu bestehen.</span></h3>
+
+        <p class="c1"></p><p class="c2"><span class="c0">Die Fortschritte in verteilten und hoch-skalierten Software-Systemen verändern die Spielregeln im Software Engineering. Die IT-Industrie übernimmt schnell Methoden, um die Flexibilität in der Software-Entwicklung oder die Geschwindigkeit von Deployments zu erhöhen. Aus diesen Vorteilen erwächst eine dringend zu beantwortende Frage: Wie sehr können wir dem System vertrauen, das wir in die Produktivumgebung eingespielt haben?</span></p>
+        <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c3 c10">Selbst wenn alle einzelnen Services in einem verteilten System ordnungsgemäß funktionieren kann die Kommunikation zwischen diesen Services unerwartete Ergebnisse haben. Diese unerwarteten Ergebnisse sowie seltene, aber nachteilige Vorfälle in der Produktivumgebung machen verteilte Systeme inhärent chaotisch.</span></p><p class="c1"><span class="c3 c10"></span></p>
+        <p class="c2"><span class="c3 c10">Wir müssen Schwachstellen finden, bevor sie zu systemweiten Fehlverhalten führen. Schwachstellen im System können zum Beispiel folgende Dinge sein: unzureichende Ersatzkonfigurationen wenn ein Service nicht erreichbar ist, zu viele wiederholte Aufrufversuche durch ungenau konfigurierte TimeOuts, Ausfälle durch zu hohen Traffic auf eine Abhängigkeit, sich ausweitende Systemfehler wenn ein Single Point of Failure abstürzt, o.ä.
+            Wir müssen die Schwachstellen mit den größten Auswirkungen proaktiv angehen bevor sie zu Problemen für unsere Kunden auf der Produktivumgebung führen. Wir müssen einen Weg finden, das eingebaute Chaos verteilter Systeme zu kontrollieren, um die Vorteile von erhöhter Flexibilität und Geschwindigkeit einzufahren während wir gleichzeitig Vertrauen in unsere Produktions-Deployments haben obwohl sie eine hohe Komplexität darstellen.</span></p>
+        <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c0">Ein empirisches, systembasiertes Vorgehen adressiert das Chaos in hoch-skalierten verteilten Systemen und erhöht unser Vertrauen, dass diese Systeme realistischen Bedingungen Stand halten. Wir lernen das Verhalten von verteilten Systemen kennen, indem wir sie in kontrollierten Experimenten beobachten. Das ist Chaos Engineering.</span></p>
+        <p class="c1"><span class="c3"></span></p>
+        <h3 class="c2 c12"><a name="h.4zuknwz5zjdm"></a><span class="c17">CHAOS IN DER PRAXIS</span></h3>
+        <p class="c2"><span class="c3">Man kann Chaos Engineering als die Durchführung von Experimenten betrachten, um Schwachstellen im System zu finden; genauer geht es um Schwachstellen in großen verteilten Systemen. Die Experimente laufen in vier Schritten ab:</span></p>
+        <ol class="c20 lst-kix_tgmutpd37h0c-0 start" start="1">
+            <li class="c2 c6"><span class="c3">Starte damit einen „stabilen Zustand“ als einen messbaren System-Output zu definieren, der ein normales Verhalten des Systems signalisiert.</span></li>
+            <li class="c2 c6"><span class="c3">Stelle die Hypothese auf, dass der stabile Zustand sowohl in der Kontrollgruppe also auch in der Experimentalgruppe erhalten bleibt.</span></li>
+            <li class="c2 c6"><span class="c3">Führe Variablen ein, die echte Vorfälle aus dem produktiven Betrieb repräsentieren etwa Server-Abstürze, Festplattenfehlfunktionen, unterbrochene Netzwerkverbindungen, o.ä.</span></li>
+            <li class="c2 c6"><span class="c3">Versuche die Hypothese zu falsifizieren, indem du den System-Output von Experimental- und Kontrollgruppe nach Unterschieden in Bezug auf den definierten stabilen Zustand untersuchst.</span></li>
+        </ol>
+        <p class="c2"><span class="c3">Je schwerer es ist, das System aus dem stabilen Zustand zu bringen desto mehr Vertrauen haben wir in das Verhalten des Systems. Gefundene Schwachstellen sind Verbesserungsziele, die angegangen werden können bevor sich fehlerhaftes Verhalten im Gesamtsystem manifestiert.</span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <h3 class="c2 c12"><a name="h.pbt9yqhet2a1"></a><span class="c17">FORTGESCHRITTENE PRINZIPIEN</span></h3>
+        <p class="c2"><span class="c0">Die nachfolgenden Prinzipien beschreiben bezogen auf den oben erläuterten Prozess das ideale Vorgehen im Chaos Engineering. Das Maß zu dem diese Prinzipien verfolgt werden korreliert stark mit dem Vertrauen, das wir in unser hoch-skaliertes, verteiltes System haben können.</span></p>
+        <h4 class="c2 c15"><a name="h.aor3c2didy5z"></a><span class="c13">Formuliere eine Hypothese über das Verhalten im stabilen Zustand</span></h4><p class="c2 c9"><span class="c0">Konzentriere dich besser auf messbaren System-Output als auf die inneren Eigenschaften des Systems. Messungen des System-Outputs über einen begrenzten Zeitraum können als Proxy für den stabilen Zustand angesehen werden. Interessante Metriken, die den stabilen Zustand repräsentieren können unter anderem sein: der Durchsatz des Gesamtsystems, die durchschnittliche Latenz, Fehlerraten, o.ä. 
+            Durch die Fokussierung auf die Verhaltensmuster des Systems während der Experimente verifiziert Chaos Engineering, dass das System funktioniert und validiert nicht wie es funktioniert.
+            </span></p>
+        <h4 class="c2 c15"><a name="h.xx9pyjy8b6fj"></a><span class="c13">Variiere die Simulation von echten Vorfällen aus dem produktiven Betrieb</span></h4>
+        <p class="c2 c9"><span class="c0">Chaos-Variablen repräsentieren echte Vorfälle aus dem produktiven Betrieb des Systems. Priorisiere die Vorfälle entweder nach ihrem Schadenspotential oder nach der geschätzten Häufigkeit. Betrachte Vorfälle, die verschiedene Ursachen haben wie solche, die durch Hardware-Fehler verursacht werden (z.B. kaputte Server) solche, die durch Software-Fehler verursacht werden (z.B. ungültig formatierte Service-Antworten) oder solche, die zwar keine
+            Fehler, aber besondere Vorkommnisse darstellen (z.B. Lastspitzen). 
+            Jeder Vorfall, der das System aus dem stabilen Zustand bringen kann ist eine potentielle Variable in einem Chaos Experiment.
+            </span></p>
+        <h4 class="c2 c15"><a name="h.vb69dlzcejn7"></a><span class="c13">Mache Experimente auf der Produktivumgebung</span></h4><p class="c2 c9"><span class="c0">Systeme verhalten sich abhängig von Umgebung und Systemzugriffsmustern unterschiedlich. Da sich die Nutzungsmuster jederzeit ändern können ist eine Stichprobenentnahme tatsächlicher Zugriffe der einzige Weg den Zugriffspfad zuverlässig zu erfassen. 
+            Im Chaos Engineering werden Experimente bevorzugt direkt auf der Produktivumgebung durchgeführt, um zu garantieren, dass das System in realistischer Art und Weise ausgeführt wird und die Ergebnisse hohe Relevanz für das tatsächlich in der Produktivumgebung laufende System haben.</span></p>
+        <h4 class="c2 c15"><a name="h.j261x4z5mpi0"></a><span class="c13">Automatisiere Experimente, um sie kontinuierlich durchzuführen</span></h4><p class="c2 c9"><span class="c0">Experimente manuell durchzuführen ist arbeitsaufwändig und auf Dauer nicht durchführbar. Automatisiere Experimente und führe sie kontinuierlich durch. Chaos Engineering baut Automatisierungsmöglichkeiten in das System ein, um Orchestrierung und Analyse voranzutreiben.</span></p>
+        <h4 class="c2 c15"><span class="c13">Minimiere die Schadenszone</span></h4><p class="c2 c9"><span class="c0">Experimente in der Produktivumgebung durchzuführen kann bei den Kunden zu unnötigem Schaden führen. Obwohl kurzfristige negative Folgen erlaubt sein müssen ist es die Aufgabe und Verantwortung der Chaos Ingenieure dafür Sorge zu tragen, dass die schadhaften Folgen der Experimente minimiert und unter Kontrolle gehalten werden.</span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2"><span class="c0">Chaos Engineering ist eine mächtige Methode, die bereits bei einigen der größten IT-Vorhaben der Welt verändert wie Software konzipiert und entwickelt wird. Während andere Methoden Geschwindigkeit und Flexibilität verbessern, beschäftigt sich Chaos Engineering explizit mit der Ungewissheit in verteilten Systemen. Die Prinzipien des Chaos geben uns das Vertrauen schnell Innovationen in sehr großem Maßstab zu entwickeln und gleichzeitig den Kunden das hochwertige Erlebnis zu bieten, das sie verdienen.</span></p>
+        <p class="c2"><span class="c0">Tritt der laufenden Diskussion der „Prinzipien des Chaos“ und ihrer Anwendung in der <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a> Google Group (engl.) bei.</span></p>
+        <p class="c1"><span class="c0"></span></p>
+        <p class="c2">Übersetzungen: <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
+                href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
+            (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent')">TR</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a> | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a>
+            <br>
+            Wenn du eine Übersetzung in deiner Sprache ergänzen möchtest, bitte reiche einen Pull Requests auf das <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a> ein.</p>
+    </div>
+
+    <!-- End of German version -->
     <!-- Start italian version -->
     <div id="ITcontent" style="visibility:hidden;height:0;display:none;">
         <p class="c18"><span class="c5">PRINCIPI DI INGEGNERIA DEL CAOS</span></p>
@@ -130,7 +179,7 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c2"> <span class="c0"> Chaos Engineering è una pratica potente che sta già cambiando il modo in cui il software è progettato e progettato in alcune delle operazioni su scala più grande del mondo.  Laddove altre pratiche affrontano velocità e flessibilità, Chaos affronta specificamente l'incertezza sistemica in questi sistemi distribuiti.  The Principles of Chaos fornisce sicurezza per innovare rapidamente su enormi scale e offrire ai clienti le esperienze di alta qualità che meritano. </span> </p> <p class="c21"> <span> </span> </p >
         <p class="c2"> <span class="c0"> Partecipa alla discussione in corso sui Principles of Chaos e la loro applicazione nel<a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a> Google Group.</span></p>
         <p class="c1"><span class="c0"></span></p>
-        <p class="c2">Traduzioni: <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
+        <p class="c2">Traduzioni: <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('DEcontent')">DE</a> | <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
                 href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent')">TR</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a> | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a>
             <br>
@@ -171,7 +220,7 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c2"><span class="c0">L’Ingénierie du Chaos est une pratique puissante qui change déjà la façon dont les logiciels sont conçus et fabriqués dans le cadre de certaines des plus grandes opérations au monde. Là où d'autres pratiques traitent de la vitesse et de la flexibilité, le Chaos s'attaque spécifiquement à l'incertitude systémique des systèmes distribués. Les Principes du Chaos fournissent la confiance nécessaire pour innover rapidement à grande échelle et offrir aux clients un expériences avec le niveau de haute qualité qu'ils méritent.</span></p><p class="c21"><span></span></p>
         <p class="c2"><span class="c0">Vous pouvez nous rejoindre pour échanger sur ces principes du Chaos et leur mise en application dans le groupe Google <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a>.</span></p>
         <p class="c1"><span class="c0"></span></p>
-        <p class="c2">Traductions: <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
+        <p class="c2">Traductions: <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('DEcontent')">DE</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
                 href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent')">TR</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a> | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a><br>
             Si vous souhaitez contribuer en ajoutant votre traduction, vous pouvez soumettre une pull request dans ce <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github</a>.</p>
@@ -212,7 +261,7 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c2"><span class="c0">
     &#1055;&#1088;&#1080;&#1089;&#1086;&#1077;&#1076;&#1080;&#1085;&#1103;&#1081;&#1090;&#1077;&#1089;&#1100; &#1082; &nbsp;&#1086;&#1073;&#1089;&#1091;&#1078;&#1076;&#1077;&#1085;&#1080;&#1102; &#1087;&#1088;&#1080;&#1085;&#1094;&#1080;&#1087;&#1086;&#1074; &#1061;&#1072;&#1086;&#1089;&#1072; &#1080; &#1080;&#1093; &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1103; &#1074; &#1043;&#1091;&#1075;&#1083; &#1043;&#1088;&#1091;&#1087;&#1087;&#1077;</span><span><a href="https://groups.google.com/forum/%23!forum/chaos-community&amp;sa=D&amp;ust=1527967088964000">&nbsp;</a></span><span class="c4"><a href="https://groups.google.com/forum/%23!forum/chaos-community&amp;sa=D&amp;ust=1527967088965000">&#1061;&#1072;&#1086;&#1089; &#1057;&#1086;&#1086;&#1073;&#1097;&#1077;&#1089;&#1090;&#1074;&#1072;</a></span><span class="c2">.</span></p>
         <p class="c1"><span class="c0"></span></p>
-        <p class="c2">&#1055;&#1077;&#1088;&#1077;&#1074;&#1086;&#1076;&#1099;:<span><a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a
+        <p class="c2">&#1055;&#1077;&#1088;&#1077;&#1074;&#1086;&#1076;&#1099;:<span><a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('DEcontent')">DE</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a
                 href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent')">TR</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a> | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a><br><p class="c0"><span>&#1045;&#1089;&#1083;&#1080; &#1074;&#1099; &#1093;&#1086;&#1090;&#1080;&#1090;&#1077; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1089;&#1074;&#1086;&#1081; &#1087;&#1077;&#1088;&#1077;&#1074;&#1086;&#1076;, &#1087;&#1086;&#1078;&#1072;&#1083;&#1091;&#1081;&#1089;&#1090;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1100;&#1090;&#1077; &#1087;&#1091;&#1083;&#1083;-&#1088;&#1077;&#1082;&#1074;&#1077;&#1089;&#1090; &#1074;</span><span><a  href="https://github.com/chaos-eng/chaos-eng.github.io/&amp;sa=D&amp;ust=1527967088968000">&nbsp;</a></span><span class="c4"><a href="https://github.com/chaos-eng/chaos-eng.github.io/&amp;sa=D&amp;ust=1527967088968000">Github</a> </span></p>
     </div>
@@ -250,7 +299,7 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c2"><span class="c0">Kaos Mühendisliği, dünya çapındaki pek çok çok-büyük ölçekli operasyonda, yazılımın nasıl tasarlandığını değiştirmekte olan güçlü bir uygulamadır. Diğer metotlar hız ve esnekliğe hitap etmekte iken, Kaos, özellikle  dağıtık sistemlerde sistemik belirsizliği ele alır. Kaos İlkeleri, kitlesel ölçeklerde hızlı bir şekilde yenilik yapmaya ve müşterilere hak ettikleri yüksek kaliteli deneyimleri vermek üzere sistemlere olan güveni artırmayı hedefler.</span></p><p class="c21"><span></span></p>
         <p class="c2"><span class="c0"><a href="https://groups.google.com/forum/#!forum/chaos-community">Kaos Topluluğu</a> Google Grubunda, Kaos İlkeleri ve bunların uygulamaları üzerine devam eden tartışmalara katılın.</span></p>
         <p class="c1"><span class="c0"></span></p>
-        <p class="c2">Translations: <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
+        <p class="c2">Translations: <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('DEcontent')">DE</a> | <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
                 href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('ENcontent')">EN</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a> | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a><br>
             If you want to add your translation, please submit a pull request against
@@ -291,6 +340,7 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c1"><span class="c0"></span></p>
         <p class="c2">Traduções:
             <a href="#" onclick = "toggle('ENcontent');">EN</a>
+            | <a href="#" onclick = "toggle('DEcontent')">DE</a>
             | <a href="#" onclick = "toggle('FRcontent');">FR</a>
             | <a href="#" onclick = "toggle('RUcontent');">RU</a>
             | <a href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文 (简体)</a>
@@ -350,6 +400,7 @@ to withstand turbulent conditions in production.</span></h3>
         <p class="c1"><span class="c0"></span></p>
         <p class="c2">ترجمة:
             <a href="#" onclick = "toggle('ENcontent');">EN</a>
+            | <a href="#" onclick = "toggle('DEcontent')">DE</a>
             | <a href="#" onclick = "toggle('FRcontent');">FR</a>
             | <a href="#" onclick = "toggle('RUcontent');">RU</a>
             | <a href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文 (简体)</a>
@@ -405,6 +456,7 @@ to withstand turbulent conditions in production.</span></h3>
             <a href="#" onclick = "toggle('ENcontent');">EN</a>
             | <a href="#" onclick = "toggle('FRcontent');">FR</a>
             | <a href="#" onclick = "toggle('RUcontent');">RU</a>
+            | <a href="#" onclick = "toggle('DEcontent');">DE</a>
             | <a href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文 (简体)</a>
             | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a>
             | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a>
@@ -481,7 +533,8 @@ to withstand turbulent conditions in production.</span></h3>
             <a href="#" onclick = "toggle('ENcontent');">EN</a>
             | <a href="#" onclick = "toggle('FRcontent')">FR</a> 
             | <a href="#" onclick = "toggle('ITcontent')">IT</a> 
-            | <a href="#" onclick = "toggle('RUcontent')">RU</a> 
+            | <a href="#" onclick = "toggle('RUcontent')">RU</a>
+            | <a href="#" onclick = "toggle('DEcontent');">DE</a> 
             | <a href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> 
             | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> 
@@ -529,7 +582,7 @@ turbulentním podmínkám v produkčním prostředí.</span></h3>
         <p class="c2"><span class="c0">Chaosinženýrství je užitečný postup, který mění způsob, jakým je software v některých z největších společností na světě navržen a vystavěn. Zatímco se jiné přístupy věnují rychlosti a flexibilitě, chaos se v distribuovaných systémech zabývá systémovou nejistotou. Principy chaosinženýrství poskytují důvěru, která umožňuje rychle a ve velkém rozsahu inovovat, a přináší zákazníkům vysokou kvalitu.</span></p><p class="c21"><span></span></p>
         <p class="c2"><span class="c0">Připojte se k diskusi o principech chaosu a jejich použití, kterou vedeme ve skupině Google <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a>.</span></p>
         <p class="c1"><span class="c0"></span></p>
-        <p class="c2">Jiné jazyky: <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
+        <p class="c2">Jiné jazyky: <a href="#" onclick = "toggle('ENcontent');">EN</a> | <a href="#" onclick = "toggle('DEcontent');">DE</a> | <a href="#" onclick = "toggle('FRcontent')">FR</a> | <a href="#" onclick = "toggle('ITcontent')">IT</a> | <a href="#" onclick = "toggle('RUcontent')">RU</a> | <a
                 href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文
             (简体)</a> | <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> | <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> | <a href="#" onclick = "toggle('TRcontent')">TR</a> | <a href="#" onclick = "toggle('PTBRcontent')">PT-BR</a> | <a href="#" onclick = "toggle('ARcontent');">العَرَبِيَّة‎</a> | <a href="#" onclick = "toggle('JAcontent');">日本語</a> | <a href="#" onclick = "toggle('UAcontent');">UA‎</a>
             <br>
