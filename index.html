@@ -554,6 +554,7 @@ to withstand turbulent conditions in production.</span></h3>
             | <a href="#" onclick = "toggle('CZcontent');">CZ‎</a>
             | <a href="#" onclick = "toggle('PLcontent');">PL</a>
             | <a href="#" onclick = "toggle('HUcontent');">HU</a>
+            | <a href="#" onclick = "toggle('HIcontent');">HIN‎</a> 
             <br>
             Якщо ви хочете додати свій переклад, створіть PR до
             <a href="https://github.com/chaos-eng/chaos-eng.github.io/">цього Github</a> репозиторію.</p>
@@ -600,68 +601,64 @@ turbulentním podmínkám v produkčním prostředí.</span></h3>
     </div>
     <!-- Start of Polish Version -->
     <div id="PLcontent">
-        <p class="c18"><span class="c5">ZASADY INŻYNIERII CHAOSU</span></p>
-        <p class="c18"><span class="c0">Ostatnia modyfikacja: Sierpień 2019 </span></p>
-        <h3 class="c16"><span class="c4">Inżynieria Chaosu to zestaw praktyk, które polegają na&nbsp;wykonywaniu kontrolowanych&nbsp;eksperymentów na&nbsp;systemie w&nbsp;celu zidentyfikowania, analizy i&nbsp;usunięcia jego słabych punktów, tak&nbsp;aby&nbsp;później mógł&nbsp;on&nbsp;utrzymać pełną stabilność na&nbsp;produkcji pomimo pojawiających się problemów.</span></h3>
-
-        <p class="c1"></p><p class="c2"><span class="c0">Postęp w&nbsp;budowaniu rozproszonych systemów dużej skali zmienia zasady, którymi rządzą się procesy wytwarzania oprogramowania. Jako branża, musimy stosować kolejne ulepszenia, które pozwolą nam na&nbsp;większą elastyczność i&nbsp;szybsze wdrożenia oprogramowania na produkcję. Ciągła pogoń za&nbsp;szybkością wprowadzania zmian do naszego systemu pozostawia nas z&nbsp;pytaniem: jak dużą mamy pewność, że&nbsp;nasze złożone systemy będą spisywały się bez&nbsp;zastrzeżeń w&nbsp;dłuższej perspektywie?</span></p>
-        <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c3 c10">Nawet jeżeli wszystkie usługi, które wchodzą w&nbsp;skład naszego rozproszonego systemu, działają poprawnie w&nbsp;izolacji, interakcje pomiędzy nimi mogą doprowadzić do nieprzewidywalnych skutków. Te&nbsp;z&nbsp;kolei, połączone z&nbsp;rzadkimi, ale zakłócającymi pracę zdarzeniami losowymi, powodują, że&nbsp;nasze systemy zachowują się z&nbsp;natury chaotycznie.</span></p><p class="c1"><span class="c3 c10"></span></p>
-        <p class="c2"><span class="c3 c10">Naszym zadaniem jest identyfikacja tych słabych punktów, zanim one spowodują nieprawidłowości w&nbsp;działaniu całego systemu.</span> <span class="c0">Przykładem takich słabych punktów systemu&nbsp;są:</span> <span class="c0">nieprawidłowe zachowanie w&nbsp;przypadku awarii zewnętrznej usługi, grad ponowień spowodowany nieprawidłowym ustawieniem czasów oczekiwania na&nbsp;odpowiedź, awarie spowodowane niedostępnością zależnej usługi, która jest przeciążona, kaskadowe awarie spowodowane niedostępnością krytycznej i&nbsp;jedynej zależności itp.</span> <span class="c0">Wszystkie słabe punkty, muszą zostać zidentyfikowane oraz&nbsp;proaktywnie naprawione, zanim wpłyną na klientów końcowych i&nbsp;działanie systemów produkcyjnych. Potrzebujemy mechanizmów, które pozwolą ujarzmić istniejący w&nbsp;nich naturalny chaos, tak&nbsp;aby uzyskać większą elastyczność i&nbsp;szybkość wdrożeń, oraz upewnić się, że&nbsp;systemy, które&nbsp;zbudowaliśmy, będą zachowywały się stabilnie, pomimo ich stopnia złożoności.</span></p>
-        <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c0">Jedynie empiryczne</span> <span class="c0">podejście, skupione na&nbsp;analizie systemowej</span>, <span class="c0">pozwala okiełznać problem istniejącego chaosu w&nbsp;rozproszonych systemach dużej skali i&nbsp;zyskać pewność, że&nbsp;ich&nbsp;architektura pozwala na&nbsp;przetrwanie w&nbsp;rzeczywistych warunkach.</span> <span class="c0">Sprawdzamy to za&nbsp;pomocą <span class="c0">obserwacji</span> zachowania analizowanego systemu <span class="c0">podczas kontrolowanego eksperymentu. A taką praktykę nazywamy </span><span class="c0 c11">Inżynierią Chaosu</span><span class="c0">.</span></p>
-        <p class="c1"><span class="c3"></span></p>
-        <h3 class="c2 c12"><a name="h.4zuknwz5zjdm"></a><span class="c17">INŻYNIERIA CHAOSU W PRAKTYCE</span></h3>
-        <p class="c2"><span class="c3">Inżynieria Chaosu wprowadza reguły, w&nbsp;jaki sposób przeprowadzać kontrolowane eksperymenty, aby&nbsp;wykrywać słabości systemu. Oto cztery kroki, według których eksperymenty te powinny przebiegać:</span></p>
-        <ol class="c20 lst-kix_tgmutpd37h0c-0 start" start="1">
-            <li class="c2 c6"><span class="c3">Rozpocznij od zdefiniowania ‘stanu bazowego’, udokumentowanego za&nbsp;pomocą pomiarów i&nbsp;wyników działania wskazującego na&nbsp;normalne zachowanie badanego systemu.</span></li>
-            <li class="c2 c6"><span class="c3">Postaw hipotezę, że&nbsp;stan bazowy zostanie utrzymany na&nbsp;czas eksperymentu dla grupy badanej oraz grupy kontrolnej.</span></li>
-            <li class="c2 c6"><span class="c3">Wprowadź zmienne, które odzwierciedlają rzeczywiste zdarzenia np. awaria serwera, uszkodzenia dysków twardych, spowolnione lub zerwane połączenia sieciowe itp.</span></li>
-            <li class="c2 c6"><span class="c3">Spróbuj obalić hipotezę, porównując różnice pomiędzy stanem bazowym grupy badanej oraz grupy kontrolnej.</span></li>
-        </ol>
-        <p class="c2"><span class="c3">Im trudniej jest zakłócić stan bazowy, tym większa pewność, że&nbsp;system będzie zachowywał się poprawnie w&nbsp;przypadku problemów. Jeśli za&nbsp;pomocą eksperymentu, udało się odkryć słabość, mamy w&nbsp;tym&nbsp;momencie scenariusz pozwalający na&nbsp;odtworzenie niepożądanego zachowania, w&nbsp;celu jego usunięcia, zanim doprowadzi on&nbsp;do&nbsp;awarii.</span></p>
-        <p class="c1"><span class="c0"></span></p>
-        <h3 class="c2 c12"><a name="h.pbt9yqhet2a1"></a><span class="c17">ZAAWANSOWANE ZASADY</span></h3>
-        <p class="c2"><span class="c0">Zasady przedstawione poniżej pomogą Ci zaaplikować Inżynierię Chaosu do procesu opisanego w powyższych krokach. To, jaki nacisk położysz na&nbsp;podążanie za&nbsp;zasadami, bezpośrednio przekłada się na pewność, z&nbsp;jaką będziesz rozwijać i&nbsp;utrzymywać swój system.</span></p>
-        <h4 class="c2 c15"><a name="h.aor3c2didy5z"></a><span class="c13">Stawiaj hipotezy dotyczące stanu bazowego</span></h4><p class="c2 c9"><span class="c0">Skupiaj się bardziej na&nbsp;tym, </span><span class="c0">co widać na wyjściu analizowanego systemu</span><span class="c0"> niż na&nbsp;jego wewnętrznych lub&nbsp;zaprojektowanych cechach. Pomiary metryk wyjściowych w&nbsp;krótkich odstępach czasu będą stanowić odzwierciedlenie stanu bazowego.</span> <span class="c0">Przykładami takich metryk mogą być: przepustowość systemu, liczba błędów, histogramy czasu opóźnień itp. Dzięki temu podczas eksperymentów możemy skupić się na analizie systemowych słabości w&nbsp;czasie rzeczywistym</span> <span class="c0">oraz</span> <span class="c0 c11">weryfikujemy</span> <span class="c0">działanie systemu, zamiast analizować, jak</span> <span class="c0 c11">teoretycznie</span> <span class="c0">nasz system powinien działać.</span></p>
-        <h4 class="c2 c15"><a name="h.xx9pyjy8b6fj"></a><span class="c13">Przygotuj rzeczywiste scenariusze awarii</span></h4>
-        <p class="c2 c9"><span class="c0">Niepożądane działanie naszych systemów spowodowane jest wydarzeniami ze świata rzeczywistego. Podczas eksperymentów, należy skupić się w&nbsp;pierwszej kolejności na&nbsp;tych zdarzeniach, które mają największy wpływ na&nbsp;działanie systemu lub występują najczęściej. Bierz pod uwagę zdarzenia, które odzwierciedlają awarie sprzętowe (np. awaria serwera), awarie oprogramowania (np. nieprawidłowe lub nieoczekiwane odpowiedzi) oraz akceptowalne wydarzenia związane z&nbsp;ruchem (np. nieoczekiwany skok w&nbsp;liczbie zapytań) lub skalowaniem infrastruktury. Każde zdarzenie, które może zakłócić stabilność stanu bazowego, jest potencjalną zmienną podczas eksperymentów Inżynierii Chaosu.</span></p>
-        <h4 class="c2 c15"><a name="h.vb69dlzcejn7"></a><span class="c13">Wykonuj eksperymenty na systemach produkcyjnych</span></h4><p class="c2 c9"><span class="c0">Systemy zachowują się inaczej w&nbsp;zależności od środowiska oraz wzorców ruchu. Skoro zachowanie związane z&nbsp;jego eksploatacją może zmienić się w&nbsp;każdym momencie, próbkowanie rzeczywistego ruchu jest jedynym sposobem, aby odtworzyć produkcyjne zachowanie systemu dla analizowanej ścieżki. W&nbsp;celu zagwarantowania autentyczności zachowania systemu oraz prawidłowego punktu odniesienia do rzeczywistego zachowania, zasady Inżynierii Chaosu sugerują, aby eksperymenty wykonywać bezpośrednio na&nbsp;systemie produkcyjnym.</span></p>
-        <h4 class="c2 c15"><a name="h.j261x4z5mpi0"></a><span class="c13">Zautomatyzuj wykonywanie eksperymentów</span></h4><p class="c2 c9"><span class="c0">Przeprowadzanie eksperymentów metodami manualnymi jest czasochłonne oraz nieefektywne. Podłącz zautomatyzowane uruchamianie eksperymentów do swojego procesu ciągłej integracji/ciągłych wdrożeń <span class="c0 c11">(CI/CD)</span>. Dzięki temu praktyki Inżynierii Chaosu pomogą w dążeniu do tego, aby budować prawidłową automatyzację naszego systemu, która pomaga w&nbsp;orkiestracji wydarzeń oraz analizie i&nbsp;obserwacji.</span></p>
-        <h4 class="c2 c15"><span class="c13">Minimalizuj strefę wpływu eksperymentu</span></h4><p class="c2 c9"><span class="c0">Eksperymenty na systemie produkcyjnym mogą generować niepotrzebne problemy dla użytkowników końcowych. Oczywiście, przeprowadzenie takich eksperymentów musi być poprzedzone zgodą na&nbsp;pewne negatywne skutki uboczne, ale zadaniem i&nbsp;obowiązkiem Inżynierów Chaosu jest upewnienie się, że&nbsp;potencjalne konsekwencje kontrolowanej awarii będą jak najmniejsze.</span></p>
-        <p class="c1"><span class="c0"></span></p>
-<<<<<<< HEAD
-        <p class="c2"><span class="c0">Inżynieria Chaosu to zestaw potężnych praktyk, które zmieniły sposób, w&nbsp;jakim projektuje oraz implementuje się oprogramowanie w&nbsp;wielu firmach na całym świecie, także tych największych. Tam, gdzie inne praktyki skupiają się wyłącznie na szybkości wytwarzania i&nbsp;elastyczności, omawiane reguły skupiają się przede wszystkim na usuwaniu niepewności pojawiających się w&nbsp;systemach rozproszonych. Jako skutek uboczny ich stosowania, oprócz zaufania, uzyskujemy przewidywalność, i&nbsp;możliwość szybszego rozwoju. Dzięki temu jesteśmy w&nbsp;stanie dostarczyć klientom końcowym produkt i&nbsp;doświadczenia wysokiej jakości, na&nbsp;które zasługują.</span></p><p class="c21"><span></span></p>
-=======
-        <p class="c2"><span class="c0">Inżynieria Chaosu to zestaw potężnych praktyk, które zmieniły sposób, w&nbsp;jakim projektuje oraz implementuje się oprogramowanie w&nbsp;wielu firmach na całym świecie, także tych największych. Tam, gdzie inne praktyki skupiają się wyłącznie na szybkości wytwarzania i&nbsp;elastyczności, omawiane reguły skupiają się przede wszystkim na usuwaniu niepewności pojawiających się w&nbsp;systemach rozproszonych. Jako skutek uboczny ich stosowania, oprócz zaufania, uzyskujemy przewidywalność, i&nbsp;możliwość szybszego rozwoju. Dzięki temu jesteśmy w&nbsp;stanie dostarczyć klientom końcowym produkt i&nbsp;doświadczenia wysokiej jakości, na&nbsp;które zasługują.</span></p><p class="c21"><span></span></p>
->>>>>>> da90daa59f1816d82b9c9ef2a01e3c497f6091af
-        <p class="c2"><span class="c0">Dołącz do oficjalnej grupy dyskusyjnej <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a> na Google Group, aby porozmawiać o zasadach inżynierii chaosu.</span></p>
-        <p class="c1"><span class="c0"></span></p>
-        <p class="c2">
-            Tłumaczenia:
-            <a href="#" onclick="toggle('ENcontent')">EN</a> |
-            <a href="#" onclick="toggle('FRcontent')">FR</a> |
-            <a href="#" onclick="toggle('ITcontent')">IT</a> |
-            <a href="#" onclick="toggle('DEcontent')">DE</a> |
-            <a href="#" onclick="toggle('RUcontent')">RU</a> |
-            <a href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文(简体)</a> |
-            <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> |
-            <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> |
-            <a href="#" onclick="toggle('TRcontent')">TR</a> |
-            <a href="#" onclick="toggle('PTBRcontent')">PT-BR</a> |
-            <a href="#" onclick="toggle('ARcontent');">العَرَبِيَّة‎</a> |
-            <a href="#" onclick="toggle('JAcontent');">日本語</a> |
-            <a href="#" onclick="toggle('UAcontent');">UA‎</a> |
-            <a href="#" onclick="toggle('CZcontent');">CZ‎</a> |
-            <a href="#" onclick="toggle('HUcontent');">HU‎</a> |
-            <a href="#" onclick = "toggle('HIcontent');">HIN‎</a> 
-            <br>
-            Jeśli chcesz dodać swoje tłumaczenie, proszę stworzyć nowy pull request do tego repozytorium na
-            <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Githubie</a>.
-            <br>
-            <br>
-            Tłumaczenie: <a href="https://www.linkedin.com/in/afronski/">Wojciech Gawroński</a> (<a href="https://pattern-match.com/?utm_source=principles_of_chaos&utm_medium=redirect&utm_campaign=principles_of_chaos">Pattern Match</a>) - <a href="https://github.com/patternmatch/chaos-eng.github.io">Fork</a>
-        </p>
-    </div>
-    <!-- End of Polish Version -->
+            <p class="c18"><span class="c5">ZASADY INŻYNIERII CHAOSU</span></p>
+            <p class="c18"><span class="c0">Ostatnia modyfikacja: Sierpień 2019 </span></p>
+            <h3 class="c16"><span class="c4">Inżynieria Chaosu to zestaw praktyk, które polegają na&nbsp;wykonywaniu kontrolowanych&nbsp;eksperymentów na&nbsp;systemie w&nbsp;celu zidentyfikowania, analizy i&nbsp;usunięcia jego słabych punktów, tak&nbsp;aby&nbsp;później mógł&nbsp;on&nbsp;utrzymać pełną stabilność na&nbsp;produkcji pomimo pojawiających się problemów.</span></h3>
+    
+            <p class="c1"></p><p class="c2"><span class="c0">Postęp w&nbsp;budowaniu rozproszonych systemów dużej skali zmienia zasady, którymi rządzą się procesy wytwarzania oprogramowania. Jako branża, musimy stosować kolejne ulepszenia, które pozwolą nam na&nbsp;większą elastyczność i&nbsp;szybsze wdrożenia oprogramowania na produkcję. Ciągła pogoń za&nbsp;szybkością wprowadzania zmian do naszego systemu pozostawia nas z&nbsp;pytaniem: jak dużą mamy pewność, że&nbsp;nasze złożone systemy będą spisywały się bez&nbsp;zastrzeżeń w&nbsp;dłuższej perspektywie?</span></p>
+            <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c3 c10">Nawet jeżeli wszystkie usługi, które wchodzą w&nbsp;skład naszego rozproszonego systemu, działają poprawnie w&nbsp;izolacji, interakcje pomiędzy nimi mogą doprowadzić do nieprzewidywalnych skutków. Te&nbsp;z&nbsp;kolei, połączone z&nbsp;rzadkimi, ale zakłócającymi pracę zdarzeniami losowymi, powodują, że&nbsp;nasze systemy zachowują się z&nbsp;natury chaotycznie.</span></p><p class="c1"><span class="c3 c10"></span></p>
+            <p class="c2"><span class="c3 c10">Naszym zadaniem jest identyfikacja tych słabych punktów, zanim one spowodują nieprawidłowości w&nbsp;działaniu całego systemu.</span> <span class="c0">Przykładem takich słabych punktów systemu&nbsp;są:</span> <span class="c0">nieprawidłowe zachowanie w&nbsp;przypadku awarii zewnętrznej usługi, grad ponowień spowodowany nieprawidłowym ustawieniem czasów oczekiwania na&nbsp;odpowiedź, awarie spowodowane niedostępnością zależnej usługi, która jest przeciążona, kaskadowe awarie spowodowane niedostępnością krytycznej i&nbsp;jedynej zależności itp.</span> <span class="c0">Wszystkie słabe punkty, muszą zostać zidentyfikowane oraz&nbsp;proaktywnie naprawione, zanim wpłyną na klientów końcowych i&nbsp;działanie systemów produkcyjnych. Potrzebujemy mechanizmów, które pozwolą ujarzmić istniejący w&nbsp;nich naturalny chaos, tak&nbsp;aby uzyskać większą elastyczność i&nbsp;szybkość wdrożeń, oraz upewnić się, że&nbsp;systemy, które&nbsp;zbudowaliśmy, będą zachowywały się stabilnie, pomimo ich stopnia złożoności.</span></p>
+            <p class="c1"><span class="c0"></span></p><p class="c2"><span class="c0">Jedynie empiryczne</span> <span class="c0">podejście, skupione na&nbsp;analizie systemowej</span>, <span class="c0">pozwala okiełznać problem istniejącego chaosu w&nbsp;rozproszonych systemach dużej skali i&nbsp;zyskać pewność, że&nbsp;ich&nbsp;architektura pozwala na&nbsp;przetrwanie w&nbsp;rzeczywistych warunkach.</span> <span class="c0">Sprawdzamy to za&nbsp;pomocą <span class="c0">obserwacji</span> zachowania analizowanego systemu <span class="c0">podczas kontrolowanego eksperymentu. A taką praktykę nazywamy </span><span class="c0 c11">Inżynierią Chaosu</span><span class="c0">.</span></p>
+            <p class="c1"><span class="c3"></span></p>
+            <h3 class="c2 c12"><a name="h.4zuknwz5zjdm"></a><span class="c17">INŻYNIERIA CHAOSU W PRAKTYCE</span></h3>
+            <p class="c2"><span class="c3">Inżynieria Chaosu wprowadza reguły, w&nbsp;jaki sposób przeprowadzać kontrolowane eksperymenty, aby&nbsp;wykrywać słabości systemu. Oto cztery kroki, według których eksperymenty te powinny przebiegać:</span></p>
+            <ol class="c20 lst-kix_tgmutpd37h0c-0 start" start="1">
+                <li class="c2 c6"><span class="c3">Rozpocznij od zdefiniowania ‘stanu bazowego’, udokumentowanego za&nbsp;pomocą pomiarów i&nbsp;wyników działania wskazującego na&nbsp;normalne zachowanie badanego systemu.</span></li>
+                <li class="c2 c6"><span class="c3">Postaw hipotezę, że&nbsp;stan bazowy zostanie utrzymany na&nbsp;czas eksperymentu dla grupy badanej oraz grupy kontrolnej.</span></li>
+                <li class="c2 c6"><span class="c3">Wprowadź zmienne, które odzwierciedlają rzeczywiste zdarzenia np. awaria serwera, uszkodzenia dysków twardych, spowolnione lub zerwane połączenia sieciowe itp.</span></li>
+                <li class="c2 c6"><span class="c3">Spróbuj obalić hipotezę, porównując różnice pomiędzy stanem bazowym grupy badanej oraz grupy kontrolnej.</span></li>
+            </ol>
+            <p class="c2"><span class="c3">Im trudniej jest zakłócić stan bazowy, tym większa pewność, że&nbsp;system będzie zachowywał się poprawnie w&nbsp;przypadku problemów. Jeśli za&nbsp;pomocą eksperymentu, udało się odkryć słabość, mamy w&nbsp;tym&nbsp;momencie scenariusz pozwalający na&nbsp;odtworzenie niepożądanego zachowania, w&nbsp;celu jego usunięcia, zanim doprowadzi on&nbsp;do&nbsp;awarii.</span></p>
+            <p class="c1"><span class="c0"></span></p>
+            <h3 class="c2 c12"><a name="h.pbt9yqhet2a1"></a><span class="c17">ZAAWANSOWANE ZASADY</span></h3>
+            <p class="c2"><span class="c0">Zasady przedstawione poniżej pomogą Ci zaaplikować Inżynierię Chaosu do procesu opisanego w powyższych krokach. To, jaki nacisk położysz na&nbsp;podążanie za&nbsp;zasadami, bezpośrednio przekłada się na pewność, z&nbsp;jaką będziesz rozwijać i&nbsp;utrzymywać swój system.</span></p>
+            <h4 class="c2 c15"><a name="h.aor3c2didy5z"></a><span class="c13">Stawiaj hipotezy dotyczące stanu bazowego</span></h4><p class="c2 c9"><span class="c0">Skupiaj się bardziej na&nbsp;tym, </span><span class="c0">co widać na wyjściu analizowanego systemu</span><span class="c0"> niż na&nbsp;jego wewnętrznych lub&nbsp;zaprojektowanych cechach. Pomiary metryk wyjściowych w&nbsp;krótkich odstępach czasu będą stanowić odzwierciedlenie stanu bazowego.</span> <span class="c0">Przykładami takich metryk mogą być: przepustowość systemu, liczba błędów, histogramy czasu opóźnień itp. Dzięki temu podczas eksperymentów możemy skupić się na analizie systemowych słabości w&nbsp;czasie rzeczywistym</span> <span class="c0">oraz</span> <span class="c0 c11">weryfikujemy</span> <span class="c0">działanie systemu, zamiast analizować, jak</span> <span class="c0 c11">teoretycznie</span> <span class="c0">nasz system powinien działać.</span></p>
+            <h4 class="c2 c15"><a name="h.xx9pyjy8b6fj"></a><span class="c13">Przygotuj rzeczywiste scenariusze awarii</span></h4>
+            <p class="c2 c9"><span class="c0">Niepożądane działanie naszych systemów spowodowane jest wydarzeniami ze świata rzeczywistego. Podczas eksperymentów, należy skupić się w&nbsp;pierwszej kolejności na&nbsp;tych zdarzeniach, które mają największy wpływ na&nbsp;działanie systemu lub występują najczęściej. Bierz pod uwagę zdarzenia, które odzwierciedlają awarie sprzętowe (np. awaria serwera), awarie oprogramowania (np. nieprawidłowe lub nieoczekiwane odpowiedzi) oraz akceptowalne wydarzenia związane z&nbsp;ruchem (np. nieoczekiwany skok w&nbsp;liczbie zapytań) lub skalowaniem infrastruktury. Każde zdarzenie, które może zakłócić stabilność stanu bazowego, jest potencjalną zmienną podczas eksperymentów Inżynierii Chaosu.</span></p>
+            <h4 class="c2 c15"><a name="h.vb69dlzcejn7"></a><span class="c13">Wykonuj eksperymenty na systemach produkcyjnych</span></h4><p class="c2 c9"><span class="c0">Systemy zachowują się inaczej w&nbsp;zależności od środowiska oraz wzorców ruchu. Skoro zachowanie związane z&nbsp;jego eksploatacją może zmienić się w&nbsp;każdym momencie, próbkowanie rzeczywistego ruchu jest jedynym sposobem, aby odtworzyć produkcyjne zachowanie systemu dla analizowanej ścieżki. W&nbsp;celu zagwarantowania autentyczności zachowania systemu oraz prawidłowego punktu odniesienia do rzeczywistego zachowania, zasady Inżynierii Chaosu sugerują, aby eksperymenty wykonywać bezpośrednio na&nbsp;systemie produkcyjnym.</span></p>
+            <h4 class="c2 c15"><a name="h.j261x4z5mpi0"></a><span class="c13">Zautomatyzuj wykonywanie eksperymentów</span></h4><p class="c2 c9"><span class="c0">Przeprowadzanie eksperymentów metodami manualnymi jest czasochłonne oraz nieefektywne. Podłącz zautomatyzowane uruchamianie eksperymentów do swojego procesu ciągłej integracji/ciągłych wdrożeń <span class="c0 c11">(CI/CD)</span>. Dzięki temu praktyki Inżynierii Chaosu pomogą w dążeniu do tego, aby budować prawidłową automatyzację naszego systemu, która pomaga w&nbsp;orkiestracji wydarzeń oraz analizie i&nbsp;obserwacji.</span></p>
+            <h4 class="c2 c15"><span class="c13">Minimalizuj strefę wpływu eksperymentu</span></h4><p class="c2 c9"><span class="c0">Eksperymenty na systemie produkcyjnym mogą generować niepotrzebne problemy dla użytkowników końcowych. Oczywiście, przeprowadzenie takich eksperymentów musi być poprzedzone zgodą na&nbsp;pewne negatywne skutki uboczne, ale zadaniem i&nbsp;obowiązkiem Inżynierów Chaosu jest upewnienie się, że&nbsp;potencjalne konsekwencje kontrolowanej awarii będą jak najmniejsze.</span></p>
+            <p class="c1"><span class="c0"></span></p>
+            <p class="c2"><span class="c0">Inżynieria Chaosu to zestaw potężnych praktyk, które zmieniły sposób, w&nbsp;jakim projektuje oraz implementuje się oprogramowanie w&nbsp;wielu firmach na całym świecie, także tych największych. Tam, gdzie inne praktyki skupiają się wyłącznie na szybkości wytwarzania i&nbsp;elastyczności, omawiane reguły skupiają się przede wszystkim na usuwaniu niepewności pojawiających się w&nbsp;systemach rozproszonych. Jako skutek uboczny ich stosowania, oprócz zaufania, uzyskujemy przewidywalność, i&nbsp;możliwość szybszego rozwoju. Dzięki temu jesteśmy w&nbsp;stanie dostarczyć klientom końcowym produkt i&nbsp;doświadczenia wysokiej jakości, na&nbsp;które zasługują.</span></p><p class="c21"><span></span></p>
+            <p class="c2"><span class="c0">Dołącz do oficjalnej grupy dyskusyjnej <a href="https://groups.google.com/forum/#!forum/chaos-community">Chaos Community</a> na Google Group, aby porozmawiać o zasadach inżynierii chaosu.</span></p>
+            <p class="c1"><span class="c0"></span></p>
+            <p class="c2">
+                Tłumaczenia:
+                <a href="#" onclick="toggle('ENcontent')">EN</a> |
+                <a href="#" onclick="toggle('FRcontent')">FR</a> |
+                <a href="#" onclick="toggle('ITcontent')">IT</a> |
+                <a href="#" onclick="toggle('DEcontent')">DE</a> |
+                <a href="#" onclick="toggle('RUcontent')">RU</a> |
+                <a href="https://github.com/wizardbyron/principlesofchaos_zh-cn">中文(简体)</a> |
+                <a href="http://channy.creation.net/blog/principles-of-chaos-engineering">한국어</a> |
+                <a href="https://github.com/rodrigojmartin/principios_del_caos">Spanish</a> |
+                <a href="#" onclick="toggle('TRcontent')">TR</a> |
+                <a href="#" onclick="toggle('PTBRcontent')">PT-BR</a> |
+                <a href="#" onclick="toggle('ARcontent');">العَرَبِيَّة‎</a> |
+                <a href="#" onclick="toggle('JAcontent');">日本語</a> |
+                <a href="#" onclick="toggle('UAcontent');">UA‎</a> |
+                <a href="#" onclick="toggle('CZcontent');">CZ‎</a> |
+                <a href="#" onclick="toggle('HUcontent');">HU‎</a> |
+                <a href="#" onclick = "toggle('HIcontent');">HIN‎</a> 
+                <br>
+                Jeśli chcesz dodać swoje tłumaczenie, proszę stworzyć nowy pull request do tego repozytorium na
+                <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Githubie</a>.
+                <br>
+                <br>
+                Tłumaczenie: <a href="https://www.linkedin.com/in/afronski/">Wojciech Gawroński</a> (<a href="https://pattern-match.com/?utm_source=principles_of_chaos&utm_medium=redirect&utm_campaign=principles_of_chaos">Pattern Match</a>) - <a href="https://github.com/patternmatch/chaos-eng.github.io">Fork</a>
+            </p>
+        </div>
+        <!-- End of Polish Version -->
     <!-- Start of Hungarian version -->
     <div id="HUcontent" style="visibility:hidden;height:0;display:none;">
         <p class="c18"><span class="c5">A CHAOS ENGINEERING ALAPELVEI</span></p>
@@ -703,10 +700,10 @@ turbulentním podmínkám v produkčním prostředí.</span></h3>
     </div>
     <!-- End of Hungarian version -->
     <!-- Start of Hindi version -->
-    <div id="DEcontent" style="visibility:hidden;height:0;display:none;">
+    <div id="HIcontent" style="visibility:hidden;height:0;display:none;">
             <p class="c18"><span class="c5">अराजकता इंजीनियरिंग के सिद्धांत</span></p>
             <p class="c18"><span class="c0">अंतिम अपडेट: 2018 मई</span></p>
-            <h3 class="c16"><span class="c4">अराजकता इंजीनियरिंग एक प्रणाली पर प्रयोग करने की विधि है उसमें आत्मविश्वास पैदा करने के लिए<br>
+            <h3 class="c16"><span class="c4">अराजकता इंजीनियरिंग एक प्रणाली पर प्रयोग करने की विधि है उसमें आत्मविश्वास पैदा करने के लिए
                  एक सिस्टम की क्षमता उत्पादन प्रक्रिया के दौरान अशांत परिस्थितियों का सामना करने के लिए परीक्षण किया जाता है.</span></h3>
     
             <p class="c1"></p><p class="c2"><span class="c0">बड़े पैमाने पर वितरित सॉफ्टवेयर सिस्टम में अग्रिम दुनिया सॉफ्टवेयर इंजीनियरिंग में बदल रहे हैं। एक उद्योग के रूप में, हम उन प्रथाओं को अपनाने के लिए तत्पर हैं जो विकास के लचीलेपन और तैनाती के वेग को बढ़ाते हैं। इन लाभों की ऊँची एड़ी के जूते पर एक तत्काल प्रश्न इस प्रकार है: हम उन जटिल प्रणालियों में कितना विश्वास कर सकते हैं जो हम उत्पादन में डालते हैं?</span></p>
@@ -758,7 +755,7 @@ turbulentním podmínkám v produkčním prostředí.</span></h3>
                 <a href="#" onclick = "toggle('PLcontent');">PL</a> |
                 <a href="#" onclick = "toggle('HUcontent');">HU </a> |
                 <br>
-                यदि आप अपना अनुवाद जोड़ना चाहते हैं, तो कृपया github रिपॉजिटरी के खिलाफ एक pull request प्रस्तुत करें। <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a>पर</p>
+                यदि आप अपना अनुवाद जोड़ना चाहते हैं, तो कृपया यह रिपॉजिटरी के खिलाफ एक pull request प्रस्तुत करें। <a href="https://github.com/chaos-eng/chaos-eng.github.io/">Github repository</a> पर</p>
     </div>  
     <!-- End of Hindi version -->
 </div>
