@@ -1,0 +1,38 @@
+archetypeDir           = "archetypes"
+author                 = "admin"
+baseUrl                = "/"
+buildDrafts            = false
+relativeURLs           = true
+canonifyUrls           = true
+contentDir             = "content"
+languageCode           = "en-us"
+layoutDir              = "layouts"
+publishDir             = "public"
+theme                  = "hugo-theme-pixyll"
+title                  = "Principles of chaos engineering"
+enableEmoji            = true
+DefaultContentLanguage = "en"
+
+[params]
+    GithubLinkFork     = "https://github.com/chaos-eng/chaos-eng.github.io/"
+
+[Languages]
+[Languages.en] 
+    weight = -1
+[Languages.ar] 
+[Languages.bs] 
+[Languages.cz] 
+[Languages.es] 
+[Languages.fr] 
+[Languages.hi] 
+[Languages.hu] 
+[Languages.it] 
+[Languages.ja] 
+[Languages.pl] 
+[Languages.pt] 
+[Languages.ro] 
+[Languages.ru] 
+[Languages.sr] 
+[Languages.tr] 
+[Languages.ua] 
+[Languages.zh] 
