@@ -1,6 +1,9 @@
 # Principles of Chaos Engineering
 
-This is a static site, based on slightly modified [hugo-theme-pixyll](https://github.com/azmelanar/hugo-theme-pixyll).
+This is the source for [principlesofchaos.org](https://principlesofchaos.org).
+
+It's a static site, generated with [hugo], based on slightly modified [hugo-theme-pixyll](https://github.com/azmelanar/hugo-theme-pixyll).
+
 Theme used: [hugo-theme-pixyll](https://github.com/DenisBalan/hugo-theme-pixyll)
 
 [hugo]: https://gohugo.io/getting-started/
