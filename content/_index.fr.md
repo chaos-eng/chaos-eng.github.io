@@ -47,7 +47,7 @@ Les systèmes se comportent différemment selon l'environnement et les modèles 
 
 ### Automatiser les expérimentations pour les lancer en continu
 
-L’exécution des expériences manuellement nécessite beaucoup de main-d'œuvre et n'est finalement pas viable. Il est fortement recommandé d’automatisez les expériences pour pouvoir les exécuter en continu. L’Ingénierie du Chaos intègre l'automatisation dans le système pour piloter à la fois l'orchestration et l'analyse.
+L’exécution des expériences manuellement nécessite beaucoup de main-d'œuvre et n'est finalement pas viable. Il est fortement recommandé d’automatiser les expériences pour pouvoir les exécuter en continu. L’Ingénierie du Chaos intègre l'automatisation dans le système pour piloter à la fois l'orchestration et l'analyse.
 
 ### Minimiser le rayon de l’explosion
 
