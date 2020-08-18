@@ -1,29 +1,26 @@
 # Principles of Chaos Engineering
 
-We use [hugo] to generate the HTML, which means you need it installed.
+This is a static site, based on slightly modified [hugo-theme-pixyll](https://github.com/azmelanar/hugo-theme-pixyll).
+Theme used: [hugo-theme-pixyll](https://github.com/DenisBalan/hugo-theme-pixyll)
 
-This repo also uses submodules, so be sure to do:
+[hugo]: https://gohugo.io/getting-started/
+
+
+## Prereqs
+
+* Install [hugo] so you can generate the html
+* Check out the submodule that contains a Hugo theme:
 
 ```bash
 git submodule init
 git submodule update
 ```
 
-## Test out your changes
+## Add a translation in a new language
 
-```
-hugo server -D
-```
-
-## Generate source files and add them to git
-
-```
-hugo
-git add docs
-```
-
-
-Static site, based on slightly  modified [hugo-theme-pixyll](https://github.com/azmelanar/hugo-theme-pixyll).
-Theme used: [hugo-theme-pixyll](https://github.com/DenisBalan/hugo-theme-pixyll)
-
-[hugo]: https://gohugo.io/getting-started/
+1. Identify the [ISO 639-1 two-letter code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for your language (e.g., `pl` for Polish).
+1. Create a `content/_index.xx.md` file (where `xx` is the two-letter country code), and populate it with the text.
+1. Edit the [config.toml](config.toml) file and add a `[Languages.xx]` line under the `[Languages]` section
+1. To test locally: `hugo server -D`
+1. To generate the html files: `hugo`
+1. Commit all of the generated files: `git add config.toml && git add docs`
