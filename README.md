@@ -2,9 +2,11 @@
 
 This is the source for [principlesofchaos.org](https://principlesofchaos.org).
 
-It's a static site, generated with [hugo], based on slightly modified [hugo-theme-pixyll](https://github.com/azmelanar/hugo-theme-pixyll).
+It's a static site, generated with [hugo].
 
-Theme used: [hugo-theme-pixyll](https://github.com/DenisBalan/hugo-theme-pixyll)
+Theme used:
+[DenisBalan/hugo-theme-pixyll](https://github.com/DenisBalan/hugo-theme-pixyll)
+(a slightly modified version of [hugo-theme-pixyll](https://github.com/azmelanar/hugo-theme-pixyll))
 
 [hugo]: https://gohugo.io/getting-started/
 
