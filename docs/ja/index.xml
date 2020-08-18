@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>カオスエンジニアリングの原則 on Principles of chaos engineering</title>
+    <link>/ja/</link>
+    <description>Recent content in カオスエンジニアリングの原則 on Principles of chaos engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2020 16:25:57 +0200</lastBuildDate>
+    
+	<atom:link href="/ja/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
