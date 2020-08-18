@@ -7,7 +7,7 @@ draft = false
 # PRINCIPES D’INGENIERIE DU CHAOS
 Mise à jour : Mai 2018
 
-*L’Ingénierie du Chaos est une discipline de l’expérimentation sur un système distribué afin de renforcer la confiance dans la capacité du système à résister à des conditions turbulentes en production. *
+*L’Ingénierie du Chaos est une discipline de l’expérimentation sur un système distribué afin de renforcer la confiance dans la capacité du système à résister à des conditions turbulentes en production.*
 
 Les progrès dans les systèmes logiciels distribués à grande échelle changent le jeu pour l'ingénierie logicielle. En tant qu'industrie, nous adoptons rapidement des pratiques qui augmentent la flexibilité de développement et la rapidité de déploiement. Une question urgente émerge alors de ces évolutions : Quelle confiance pouvons-nous avoir dans les systèmes complexes que nous mettons en production ?
 
