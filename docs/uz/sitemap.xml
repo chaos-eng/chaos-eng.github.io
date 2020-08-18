@@ -3,17 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/pl/</loc>
-    <lastmod>2020-01-28T16:25:57+02:00</lastmod>
+    <loc>/uz/</loc>
+    <lastmod>2020-03-28T17:12:54-07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
                 href="/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="uz"
-                href="/uz/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -62,6 +57,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="sr"
                 href="/sr/"
                 />
@@ -97,13 +97,13 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/"
+                hreflang="uz"
+                href="/uz/"
                 />
   </url>
   
   <url>
-    <loc>/pl/categories/</loc>
+    <loc>/uz/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -156,6 +156,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="pt"
                 href="/pt/categories/"
                 />
@@ -186,23 +191,18 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="uz"
-                href="/uz/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh"
                 href="/zh/categories/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/categories/"
+                hreflang="uz"
+                href="/uz/categories/"
                 />
   </url>
   
   <url>
-    <loc>/pl/tags/</loc>
+    <loc>/uz/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -255,6 +255,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="pl"
+                href="/pl/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="pt"
                 href="/pt/tags/"
                 />
@@ -285,18 +290,13 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="uz"
-                href="/uz/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh"
                 href="/zh/tags/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="pl"
-                href="/pl/tags/"
+                hreflang="uz"
+                href="/uz/tags/"
                 />
   </url>
   

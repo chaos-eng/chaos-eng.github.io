@@ -7,6 +7,11 @@
     <lastmod>2020-01-28T16:25:57+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
+                hreflang="uz"
+                href="/uz/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="hu"
                 href="/hu/"
                 />
@@ -181,6 +186,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uz"
+                href="/uz/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/categories/"
                 />
@@ -272,6 +282,11 @@
                 rel="alternate"
                 hreflang="ua"
                 href="/ua/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uz"
+                href="/uz/tags/"
                 />
     <xhtml:link
                 rel="alternate"

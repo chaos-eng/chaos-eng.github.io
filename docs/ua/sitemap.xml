@@ -12,6 +12,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uz"
+                href="/uz/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="hu"
                 href="/hu/"
                 />
@@ -181,6 +186,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="uz"
+                href="/uz/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh"
                 href="/zh/categories/"
                 />
@@ -272,6 +282,11 @@
                 rel="alternate"
                 hreflang="tr"
                 href="/tr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uz"
+                href="/uz/tags/"
                 />
     <xhtml:link
                 rel="alternate"
