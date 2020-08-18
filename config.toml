@@ -1,6 +1,6 @@
 archetypeDir           = "archetypes"
 author                 = "admin"
-baseUrl                = "/"
+baseUrl                = "https://principlesofchaos.org"
 buildDrafts            = false
 relativeURLs           = true
 canonifyUrls           = true
