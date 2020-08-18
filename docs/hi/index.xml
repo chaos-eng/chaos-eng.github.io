@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>अराजकता इंजीनियरिंग के सिद्धांत on Principles of chaos engineering</title>
+      <title>अराजकता इंजीनियरिंग के सिद्धांत on Principles of chaos engineering </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
     <link>/hi/</link>
-    <description>Recent content in अराजकता इंजीनियरिंग के सिद्धांत on Principles of chaos engineering</description>
-    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 16:25:57 +0200</lastBuildDate>
     
-	<atom:link href="/hi/index.xml" rel="self" type="application/rss+xml" />
     
+    <updated>Tue, 28 Jan 2020 16:25:57 &#43;0200</updated>
     
   </channel>
 </rss>
+
