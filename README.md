@@ -14,7 +14,7 @@ Theme used:
 ## Prereqs
 
 * Install [hugo] so you can generate the html
-* Check out the submodule that contains a Hugo theme:
+* Check out the submodule that contains the Hugo theme:
 
 ```bash
 git submodule init
