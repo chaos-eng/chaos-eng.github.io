@@ -5,9 +5,9 @@ draft = false
 +++
 
 # PRINCIPIOS DE LA INGENIERIA DEL CAOS
-Última actualización: Mayo de 2018
+Última actualización: Enero de 2021
 
-_La Ingeniería del Caos es la disciplina de experimentar en un Sistema distribuido, con la finalidad de generar confianza en la capacidad del Sistema para soportar condiciones turbulentas en producción._
+_La Ingeniería del Caos es la disciplina de experimentar en un Sistema, con la finalidad de generar confianza en la capacidad del Sistema para soportar condiciones turbulentas en producción._
 
 Los avances en sistemas de software distribuidos a gran escala están cambiando el juego para la ingeniería de software.  Como industria, somos rápidos en adoptar prácticas que aumentan la flexibilidad de desarrollo y la velocidad de despliegue.  Una pregunta urgente sigue de cerca a estos beneficios: ¿cuánta confianza podemos tener en los sistemas complejos que ponemos en producción?
 
