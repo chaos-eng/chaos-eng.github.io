@@ -7,7 +7,7 @@ draft = false
 # PRINCÍPIOS DE CHAOS ENGINEERING
 Última atualização: Maio 2018 (Traduzido em Julho 2018)
 
-*Chaos Engineering é a disciplina de realizar experimentos sobre sistemas distribuídos com o intuito de construir confiança com relação a capacidade de um sistema distribuído suportar condições adversas em produção.*
+*Chaos Engineering é a disciplina de realizar experimentos sobre sistemas com o intuito de construir confiança com relação a capacidade de um sistema suportar condições adversas em produção.*
 
 Avanços em sistemas de software distribuídos de larga escala estão revolucionando a engenharia de software. Como indústria, nós somos rápidos para adotar práticas que aumentam a flexibilidade do desenvolvimento e a velocidade das entregas em produção (deploys). Uma pergunta crítica surge junto com estes benefícios: Quanta confiança conseguimos ter nos sistemas complexos que nós colocamos em produção?
 
