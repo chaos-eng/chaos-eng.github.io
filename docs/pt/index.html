@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
+	<meta name="generator" content="Hugo 0.90.1" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>PRINCÍPIOS DE CHAOS ENGINEERING - Principles of chaos engineering</title>
@@ -49,7 +49,7 @@
       <article class="post-content">
       <h1 id="princípios-de-chaos-engineering">PRINCÍPIOS DE CHAOS ENGINEERING</h1>
 <p>Última atualização: Maio 2018 (Traduzido em Julho 2018)</p>
-<p><em>Chaos Engineering é a disciplina de realizar experimentos sobre sistemas distribuídos com o intuito de construir confiança com relação a capacidade de um sistema distribuído suportar condições adversas em produção.</em></p>
+<p><em>Chaos Engineering é a disciplina de realizar experimentos sobre sistemas com o intuito de construir confiança com relação a capacidade de um sistema suportar condições adversas em produção.</em></p>
 <p>Avanços em sistemas de software distribuídos de larga escala estão revolucionando a engenharia de software. Como indústria, nós somos rápidos para adotar práticas que aumentam a flexibilidade do desenvolvimento e a velocidade das entregas em produção (deploys). Uma pergunta crítica surge junto com estes benefícios: Quanta confiança conseguimos ter nos sistemas complexos que nós colocamos em produção?</p>
 <p>Mesmo quando cada um dos serviços que compõem um sistema distribuído estão funcionando adequadamente, as interações entre esses serviços podem causar resultados imprevisíveis. Estas consequências, são compostas por combinações raras de eventos reais que afetam os ambientes de produção, tornando esses sistemas distribuídos inerentemente caóticos.</p>
 <p>Nós precisamos identificar fraquezas antes que elas ocorram por meio de comportamentos anômalos em todo o sistema. Falhas sistêmicas podem se manifestar por meio de: configurações inadequadas de fallback (opções de contingência) quando um serviço não está disponível; uma chuva de tentativas causadas por timeouts mal configurados; interrupções quando uma dependência downstream recebe muito mais tráfego do que o esperado; Falhas cascateadas quando um único ponto de falha para de funcionar; etc..  Nós devemos abordar as fraquezas mais relevantes dos nossos sistemas distribuídos de forma proativa, antes que afetem nossos clientes em produção. Precisamos de uma maneira de gerenciar o caos inerente a esses sistemas, aproveitando o aumento da flexibilidade e velocidade e ter a confiança em nossos sistemas de produção, independentemente da complexidade que elas representam.</p>
