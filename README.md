@@ -27,5 +27,4 @@ git submodule update
 1. Create a `content/_index.xx.md` file (where `xx` is the two-letter country code), and populate it with the text. See the [content](content) directory for examples of the format.
 1. Edit the [config.toml](config.toml) file and add a `[Languages.xx]` line under the `[Languages]` section, in alphabetical order.
 1. (Optional): Test locally: `hugo server -D` and point your browser at the local server
-1. Generate the html files: `hugo`
-1. Commit all of the generated files: `git add config.toml && git add docs`
+1. Commit all of the edited files: `git add config.toml && git add content/_index.xx.md`
