@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>PRINCIPY CHAOSINŽENÝRSTVÍ - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/cz/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/cz class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=principy-chaosinženýrství>PRINCIPY CHAOSINŽENÝRSTVÍ</h1>
+<p>Last Update: 2019 January</p>
+<p><em>Chaosinženýrství je obor zabývající se experimentováním na systému, které má za cíl vybudovat důvěru ve schopnost systému odolávat turbulentním podmínkám v produkčním prostředí.</em></p>
+<p>Rozvoj v oblasti vývoje velkých, distribuovaných softwarových systémů mění pravidla, jakými se softwarové inženýrství řídilo. V odvětví rychle zavádíme postupy, které zvyšují flexibilitu vývoje a rychlost dodávek. Ruku v ruce s těmito výhodami ale přichází i otázka: Jak moc můžeme důvěřovat komplexním systémům, které jsme nasadili do produkčního prostředí?</p>
+<p>Dokonce i když všechny služby v distribuovaném systému fungují správně, interakce mezi nimi mohou vést k nepředvídatelným výsledkům. Tyto výsledky, způsobené výjimečnými, přesto reálnými, zničujícími událostmi postihujícími produkční prostředí, dělají z distribuovaných systémů systémy z podstaty nestálé, chaotické.</p>
+<p>Slabiny potřebujeme objevit dříve, než se projeví nestandardním chováním celého systému. Zmíněnou slabinou může být např.: špatné nastavení zotavení z chybového stavu v případě nedostupnosti služby; smršť opětovných volání způsobená nevyladěnými timeouty; výpadky v případě přetížení provolávané služby; kaskádovitá selhání v případě pádu kritického místa systému; atd. Těmito nejvýznamnějšími slabinami se musíme aktivně zabývat předtím, než budou mít dopad na naše zákazníky v produkčním prostředí. Musíme navrhnout, jak zvládat chaos vlastní distribuovanému systému, využít narůstající rychlost a flexibilitu a získat důvěru v systém běžící v produkčním prostředí bez ohledu na jeho složitost.</p>
+<p>Důvěru ve schopnost daných distribuovaných systémů obstát v reálném provozu můžeme vybudovat použitím systematických postupů založených na zkušenostech, přičemž se zaměřujeme na zvládání chaosu v distribuovaných systémech. Chování distribuovaného systému poznáváme jeho pozorováním při provádění kontrolovaného experimentu. Tento postup nazýváme chaosinženýrstvím.</p>
+<h2 id=chaos-v-praxi>CHAOS V PRAXI</h2>
+<p>Abychom zvládli nejistotu v distribuovaném systému, experimentujeme, čímž pomocí chaosinženýrství odhalujeme slabiny systému. Proces experimentování se skládá ze čtyř kroků:</p>
+<ol>
+<li>Nejprve stanovte &ldquo;ustálené chování&rdquo; systému pomocí měřitelného výstupu, který ukáže, jak se systém normálně chová.</li>
+<li>Navrhněte hypotézu, že systém se bude chovat ustáleně jak pro kontrolní, tak pro experimentální skupinu.</li>
+<li>Uveďte proměnné vyjadřující události z reálného světa, např. pády serverů, selhání disků, přerušená síťová spojení atd.</li>
+<li>Snažte se vyvrátit hypotézu. Hledejte rozdíly mezi ustáleným chováním kontrolní a experimentální skupiny.</li>
+</ol>
+<p>Čím těžší je vychýlit systém z ustáleného stavu, tím větší důvěru v jeho chování máme. Jestliže však v systému objevíme slabinu, získáme možnost ho vylepšit ještě před tím, než se nežádoucí chování projeví ve velkém.</p>
+<h2 id=pokročilé-principy>POKROČILÉ PRINCIPY</h2>
+<p>Následující principy popisují ideální použití chaos engineeringu, aplikované na výše popsané procesy experimentování. Míra uplatňování těchto principů je silně svázána s důvěrou, kterou máme v distribuovaný systém.</p>
+<h3 id=vytvořte-hypotézu-o-ustáleném-chování>Vytvořte hypotézu o ustáleném chování</h3>
+<p>Spíše než na interní atributy systému se zaměřte na jeho měřitelné výstupy. Výsledky krátkého měření výstupů reprezentují ustálené chování. Mezi metriky představující ustálené chování mohou patřit např. celková propustnost systému, chybovost, percentily latence atd. Díky soustavnému sledování metrik o chování systému během chaos experimentů ověříme spíše to, žesystém pracuje , nežjak to dělá .</p>
+<h3 id=kombinujte-skutečné-realistické-události>Kombinujte skutečné (realistické) události</h3>
+<p>O událostech v reálném světě uvažujeme v kontextu chaosu jako o proměnných. Dejte důraz na události, které mohou mít významný dopad nebo ke kterým pravděpodobně dojde nejčastěji. Uvažujte o událostech jako jsou poruchy hardwaru, např. nedostupné servery, softwarové chyby, např. špatně strukturované odpovědi, ev. další události jako skokové nárůsty v objemu komunikace, nebo události spojené se škálováním. Jakákoliv událost, která může narušit ustálené chování je potenciálně proměnná v chaos experimentu.</p>
+<h3 id=provádějte-experimenty-v-produkci>Provádějte experimenty v produkci</h3>
+<p>V závislosti na prostředí a zatížení se systémy se chovají odlišně. Otisk reálného provozu je jediný způsob, jak věrohodně podchytit průchod dotazu, protože rozložení zdrojů se může kdykoliv změnit. Velmi doporučujeme experimentovat v produkčním provozu, protože pouze tak získáme autentické a relevantní výsledky vzhledem k tomu, jak je systém provozován a v jakém nastavení je nasazen.</p>
+<h3 id=automatizujte-experimenty-aby-mohly-být-prováděny-nepřetržitě>Automatizujte experimenty, aby mohly být prováděny nepřetržitě</h3>
+<p>Manuální provádění experimentů je pracné a v podstatě neudržitelné. Automatizujte experimenty, provádějte je nepřetržitě. Díky chaosinženýrství začleníme do provozovaného systému automatické mechanismy pro orchestraci a analýzu problémů.</p>
+<h3 id=minimalizujte-dopad>Minimalizujte dopad</h3>
+<p>Experimentování v produkci může zákazníkům způsobit zbytečné problémy. Ačkoli musí existovat ochota nést krátkodobé negativní dopady, je zodpovědností a povinností chaos inženýra zajistit, aby dopad experimentů byl minimalizován a ohraničen.</p>
+<p>Chaosinženýrství je užitečný postup, který mění způsob, jakým je software v některých z největších společností na světě navržen a vystavěn. Zatímco se jiné přístupy věnují rychlosti a flexibilitě, chaos se v distribuovaných systémech zabývá systémovou nejistotou. Principy chaosinženýrství poskytují důvěru, která umožňuje rychle a ve velkém rozsahu inovovat, a přináší zákazníkům vysokou kvalitu.</p>
+<p>Připojte se k diskusi o principech chaosu a jejich použití, kterou vedeme ve skupině Google <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>カオスエンジニアリングの原則 - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/ja/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/ja class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=カオスエンジニアリングの原則>カオスエンジニアリングの原則</h1>
+<p>最終更新: 2021年3月</p>
+<p><em>カオスエンジニアリングは、システムが本番環境における不安定な状態に耐える能力へ自信を持つためにシステム上で実験を行う訓練方法です。</em></p>
+<p>大規模で分散したソフトウェアシステムの進歩により、ソフトウェアエンジニアリングの趨勢は変化しています。業界では、開発の柔軟性と速度を向上させる取り組みを迅速に採用しています。複雑なシステムで本番適用することにどれほどの信頼性を持っていますか、という執拗な質問はこれらの利点に続きます。</p>
+<p>分散システム内のすべての個々のサービスが適切に機能している場合でも、それらのサービス間の相互作用は予測不可能な結果を引き起こす可能性があります。本番環境に影響を与える稀ではあるが破壊的な現実のイベントが混在する予測不可能な結果により、これらの分散システムは本質的に混沌としています。</p>
+<p>我々はシステム全体が異常な挙動に陥る前に脆弱性を特定する必要があります。このシステムの脆弱性は次のような形をとることがあります。サービスが利用できない場合に不適切なフォールバック設定になる。不適切に調整されたタイムアウトから再試行を繰り返す。ダウンストリームのシステムがあまりにも多くのトラフィックを受信し停止する。ある一つの障害が次々に別の障害を引き起こす。これらが顧客の本番環境に影響を与える前に、最も重大な脆弱性を積極的に解決しなければなりません。その複雑さにもかかわらず、これらのシステムに内在する混沌を管理し、柔軟性と速度を向上させ、高い信頼性を持って本番適用する必要があります。</p>
+<p>経験に裏打ちされたシステムベースのアプローチは、分散システムの混沌な状態を大規模に対処し、現実的な条件に耐えるシステムの高い信頼性につながります。私たちは、制御された検証においてそれを観察することによって、分散システムの動作について学びます。私たちはこれをカオスエンジニアリングと呼んでいます。</p>
+<h2 id=検証におけるカオス>検証におけるカオス</h2>
+<p>分散システムの不確実性を具体的に扱うために、カオスエンジニアリングはシステムの脆弱性を明らかにするための検証の促進と考えることができます。これらの検証は、以下の4つの手順で行います。</p>
+<ol>
+<li>通常の動作を示すシステムの測定可能な出力として「定常状態」を定義することから始めます</li>
+<li>この定常状態は、対照群および実験群の両方で継続すると仮定します</li>
+<li>サーバーのクラッシュ、ハードドライブの誤作動、ネットワーク接続の切断など、現実世界のイベントを反映する変数を導入します</li>
+<li>対照群と実験群との間の定常状態の違いを調べることによって仮説を反証しようとします</li>
+</ol>
+<p>定常状態を乱すことが困難になればなるほど、システムの挙動がより確実になります。脆弱性が発見された場合、そのシステムの動作が顕著に現れる前に、改善の目標を立てます。</p>
+<h2 id=詳細な原則>詳細な原則</h2>
+<p>以下の原理は、上述の検証プロセスに適用される、カオスエンジニアリングの理想的な応用方法です。これらの原則がどの程度追求されているかは、分散システムにおける信頼性と大きな相関があります。</p>
+<h3 id=定常状態における振る舞いの仮説を立てる>定常状態における振る舞いの仮説を立てる</h3>
+<p>システムの内部属性ではなく、測定可能なシステム出力に焦点を当てます。短い期間を越えた出力の測定値は、システムの定常状態を表す指標になります。システム全体のスループット、エラーレート、待ち時間パーセンタイルなどはすべて、定常状態の挙動を表すメトリックとすることができます。検証中のシステムの行動パターンに焦点を当てることで、カオスはシステムがどのように動くかを検証するのではなく、機能するかどうかを検証します。</p>
+<h3 id=実世界の事象は多様である>実世界の事象は多様である</h3>
+<p>カオス変数は実世界の事象を反映します。潜在的な影響または推定頻度のいずれかで事象の優先順位付けを行います。サーバーが落ちているようなハードウェア障害、不正な応答のようなソフトウェア障害、トラフィックやスケーリングイベントの急増など障害ではない事象に対応する事象を考えましょう。定常状態を破壊することができる事象は、カオス実験において潜在的な変数となります。</p>
+<h3 id=本番環境で検証を実行する>本番環境で検証を実行する</h3>
+<p>システムは環境やトラフィックパターンによって異なる動作をします。利用状況は常に変わるので、実際のトラフィックを抽出することが、確実に要求経路を捕捉する唯一の方法になります。システムの実行方法の信頼性と現在の導入済みシステムとの関連性の両方を保証するため、カオスは本番環境のトラフィック上で直接検証することを強くお勧めします。</p>
+<h3 id=継続的に実行する検証の自動化>継続的に実行する検証の自動化</h3>
+<p>手作業による検証は、手間がかかり、最終的には長続きしません。実験を自動化し、継続して実行します。カオスエンジニアリングは、オーケストレーションと分析の両方を行うためにシステムを自動化します。</p>
+<h3 id=影響範囲を局所化する>影響範囲を局所化する</h3>
+<p>本番環境での検証は、不必要な顧客の不満を引き起こす可能性があります。短期的にはマイナスの影響がありますが、カオスエンジニアには検証による被害が最小限に抑えられていることを確認する責任と義務があります。</p>
+<p>カオスエンジニアリングは強力な実践方法で、世界で最も規模の大きい業務のいくつかでソフトウェアの設計と動作をすでに変えています。 他の実践方法が速度と柔軟性を扱う一方、カオスはこれらの分散システムにおけるシステムの不確実性に特に取り組んでいます。 カオスの原則は、大規模なスケールで迅速に革新し、顧客に価値のある高品質の体験という信頼性を提供します</p>
+<p>にあるカオスの原則とその応用の議論に参加してみてください。 Google Group <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

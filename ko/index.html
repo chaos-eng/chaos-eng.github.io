@@ -1,0 +1,85 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>카오스 엔지니어링의 원칙 - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/ko/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/ko class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=카오스-엔지니어링의-원칙>카오스 엔지니어링의 원칙</h1>
+<p>Last Update: 2018 May</p>
+<p><em>카오스 엔지니어링은 운영 환경에서도 갑작스러운 장애를 견딜 수 있는 시스템을 구축하기 위해 시스템을 실험하는 분야입니다.</em></p>
+<p>대규모 분산 소프트웨어 시스템의 발전은 소프트웨어 엔지니어링의 판도를 바꾸고 있습니다. 하나의 산업으로서, 우리는 개발의 유연성과 배포 속도를 높이는 모범 사례들을 빠르게 적용합니다. 이러한 장점 이면에는 중요한 의문이 하나 있습니다. 운영에 배포한 복잡한 시스템에 대해 과연 얼마나 확신을 가질 수 있습니까?</p>
+<p>분산 시스템 내의 모든 개별 서비스가 정상적으로 작동하더라도, 각 서비스 간의 상호 작용으로 인해 예기치 못한 결과가 발생할 수 있습니다. 이 예상치 못한 결과는 비록 드물긴 해도 운영 환경에 심각한 영향을 미칠 수 있는 실제 이벤트로 인해 발생하는데, 이러한 결과는 분산 시스템 자체를 본질적으로 혼란스럽게 만듭니다.</p>
+<p>우리는 시스템 전체에서 비정상적인 행동으로 나타날 수 있는 취약점을 미리 식별해야 합니다. 시스템의 약점은 다음과 같은 형태를 취할 수 있습니다. 서비스가 이용 불가능할 때의 부적절한 대응; 잘못 설정된 타임아웃 값으로 인한 지나친 재시도; 뒷단의 시스템이 대규모 트래픽을 견디지 못해 발생한 장애; 한 지점의 장애로 인해 연달아 발생하는 장애 등.
+이와 같은 것들이 실제 운영환경에서 고객 경험에 영향을 미치기 전에, 우리는 가장 중요한 약점들을 적극적으로 해결해야 합니다. 우리는 이러한 시스템에 내재된 혼란을 관리하고, 유연성과 속도를 높여주고, 아무리 복잡할지라도 운영 환경에서의 배포에 확신을 가질 수 있는 방법이 필요합니다.</p>
+<p>경험이 뒷받침된 시스템 접근 방식은 대규모 분산 시스템에서의 혼란을 해결하고 이러한 시스템이 실제 환경에서의 변수에도 견딜 수 있다는 확신을 심어줍니다. 우리는 통제된 실험에서 시스템의 동작을 관찰함으로써 그에 대해 배웁니다.</p>
+<p>우리는 이것을 <em>카오스 엔지니어링</em>이라고 부릅니다.</p>
+<h1 id=카오스의-실제>카오스의 실제</h1>
+<p>대규모 분산 시스템의 불확실성을 구체적으로 해결하기 위한 목적으로서, 카오스 엔지니어링은 실험을 통해 시스템의 약점을 발견하기 용이하게 해줍니다. 이 실험은 4 단계를 따릅니다.</p>
+<ol>
+<li>정상적인 동작을 측정 가능한 시스템 결과물을 추출하고 이를 &lsquo;정상 상태&rsquo;로 정의합니다.</li>
+<li>이 정상 상태가 대조군과 실험군 모두에서 계속될 것이라고 가정합니다.</li>
+<li>서버 장애, 하드 드라이브 오작동, 네트워크 끊김과 같은 실제 이벤트를 반영하는 변수를 도입합니다.</li>
+<li>대조군과 실험군 간의 정상 상태 차이를 찾아서 가설을 반증합니다.</li>
+</ol>
+<p>정상 상태를 벗어나게 하기 어려울수록 시스템 동작에 대한 신뢰도는 높아집니다. 약점이 발견되면, 해당 요인이 실제 시스템에 나타나기 전에 개선할 수 있습니다.</p>
+<h2 id=심화-원칙>심화 원칙</h2>
+<p>아래 원칙들은 위에서 설명한 실험 프로세스에 기반한 이상적인 카오스 엔지니어링 적용에 대한 설명합니다. 어느 정도까지의 원칙을 추구하느냐는 대규모 분산 시스템에 대한 신뢰와 밀접한 관련이 있습니다.</p>
+<h3 id=정상-상태와-동작에-관한-가설을-세운다>정상 상태와 동작에 관한 가설을 세운다</h3>
+<p>시스템의 내부 속성보다는 측정 가능한 시스템 결과물에 중점을 두어야 합니다. 짧은 시간 동안 측정한 결과물들은 시스템의 정상 상태를 대변합니다. 전반적인 시스템 처리량, 에러율, 지연 백분위 수 등은 모두 정상 상태를 나타내는 주요 지표일 수 있습니다.
+실험할 때는 시스템의 행동 패턴에 집중합니다. 그러면 카오스는 시스템이 어떻게 작동하는지가 아닌 시스템이 정상적으로 작동하는지를 검증합니다.</p>
+<h3 id=다양한-실제-이벤트-변수들을-적용한다>다양한 실제 이벤트 변수들을 적용한다</h3>
+<p>카오스에서의 변수는 실제 이벤트를 반영합니다. 잠재적 영향력 또는 예상 빈도에 따라 이벤트의 우선 순위를 지정합니다. 서버 중단과 같은 하드웨어 장애, 잘못된 응답과 같은 소프트웨어 장애, 트래픽 급증 또는 시스템 확장과 같은 비장애 이벤트와 같은 이벤트들을 고려해야 합니다. 정상 상태를 방해할 수 있는 모든 이벤트는 카오스 실험에서 잠재적인 변수입니다.</p>
+<h3 id=운영-환경에서-실험을-진행한다>운영 환경에서 실험을 진행한다</h3>
+<p>시스템은 환경 및 트래픽 패턴에 따라 다르게 동작합니다. 사용률 패턴은 언제든지 변경될 수 있기 때문에, 실제 트래픽을 샘플링하는 것이 요청 경로를 안정적으로 캡처하는 유일한 방법입니다. 시스템 실행 방식에 대한 신뢰성과 현재 배포된 시스템과의 관련성을 보장하기 위해, 카오스는 운영 환경의 트래픽에서 직접 실험하는 것을 선호합니다.</p>
+<h3 id=자동화를-통해-지속적으로-실험을-진행한다>자동화를 통해 지속적으로 실험을 진행한다</h3>
+<p>수동으로 실험을 진행하게 되면 공수가 많이 들어갈 뿐만 아니라 궁극적으로 지속 불가능합니다. 실험을 자동화하고 지속적으로 실행해야 합니다. 카오스 엔지니어링은 오케스트레이션과 분석을 모두 추진하기 위해 시스템 내에 자동화를 구축하는 것입니다.</p>
+<h3 id=위험범위를-최소화한다>위험범위를 최소화한다</h3>
+<p>운영 환경에서의 실험은 고객에게 불필요한 불편을 야기할 수 있습니다. 짧은 시간동안 발생하는 부정적 영향에 대해서는 어느 정도 허용되어야 하지만, 실험으로 인해 여러 시스템에 발생할 수 있는 큰 피해를 최소화하고 억제하는 것은 카오스 엔지니어의 책임이자 의무입니다.</p>
+<p>카오스 엔지니어링은 이미 소프트웨어 설계와 엔지니어링 방식을 바꾼 강력한 도구이며, 이는 전세계에서 가장 큰 규모의 작업들에서 이루어지고 있습니다. 다른 방식들이 속도와 유연성을 다루는 반면, Chaos는 주로 이러한 분산 시스템의 불확실성을 다룹니다.
+이 카오스의 원칙들은 대규모로 신속하게 혁신할 수 있는 자신감을 제공하고, 나아가 고객에게 가치있는 고품질 경험을 제공합니다.</p>
+<p><a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>에서 진행중인 카오스의 원칙과 적용에 대한 토론에 참여하시기 바랍니다.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

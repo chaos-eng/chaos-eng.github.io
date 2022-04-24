@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>PRINCÍPIOS DE CHAOS ENGINEERING - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/pt/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/pt class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=princípios-de-chaos-engineering>PRINCÍPIOS DE CHAOS ENGINEERING</h1>
+<p>Última atualização: Maio 2018 (Traduzido em Julho 2018)</p>
+<p><em>Chaos Engineering é a disciplina de realizar experimentos sobre sistemas com o intuito de construir confiança com relação a capacidade de um sistema suportar condições adversas em produção.</em></p>
+<p>Avanços em sistemas de software distribuídos de larga escala estão revolucionando a engenharia de software. Como indústria, nós somos rápidos para adotar práticas que aumentam a flexibilidade do desenvolvimento e a velocidade das entregas em produção (deploys). Uma pergunta crítica surge junto com estes benefícios: Quanta confiança conseguimos ter nos sistemas complexos que nós colocamos em produção?</p>
+<p>Mesmo quando cada um dos serviços que compõem um sistema distribuído estão funcionando adequadamente, as interações entre esses serviços podem causar resultados imprevisíveis. Estas consequências, são compostas por combinações raras de eventos reais que afetam os ambientes de produção, tornando esses sistemas distribuídos inerentemente caóticos.</p>
+<p>Nós precisamos identificar fraquezas antes que elas ocorram por meio de comportamentos anômalos em todo o sistema. Falhas sistêmicas podem se manifestar por meio de: configurações inadequadas de fallback (opções de contingência) quando um serviço não está disponível; uma chuva de tentativas causadas por timeouts mal configurados; interrupções quando uma dependência downstream recebe muito mais tráfego do que o esperado; Falhas cascateadas quando um único ponto de falha para de funcionar; etc.. Nós devemos abordar as fraquezas mais relevantes dos nossos sistemas distribuídos de forma proativa, antes que afetem nossos clientes em produção. Precisamos de uma maneira de gerenciar o caos inerente a esses sistemas, aproveitando o aumento da flexibilidade e velocidade e ter a confiança em nossos sistemas de produção, independentemente da complexidade que elas representam.</p>
+<p>Uma abordagem empírica, baseada em sistemas endereça o caos em sistemas distribuídos em escala e gera confiança na capacidade desses sistemas de resistir a condições reais. Nós aprendemos sobre o comportamento de um sistema distribuído observando-o durante um experimento controlado. Nós chamamos isso de <em>Chaos Engineering (Engenharia do Caos)</em>.</p>
+<h2 id=chaos-na-prática>CHAOS NA PRÁTICA</h2>
+<p>Para abordar a incerteza inerente aos sistemas distribuídos em escala, Chaos Engineering (Engenharia do Caos) pode ser pensada como a condução de experimentos para descobrir fraquezas sistêmicas. Estes experimentos seguem quatro etapas:</p>
+<ol>
+<li>Comece definindo o que significa &ldquo;sistema estável&rdquo;, uma medida que tem como resultado mensurável um indicativo sobre o comportamento normal do sistema.</li>
+<li>Crie hipóteses este estado &ldquo;sistema estável&rdquo; permanecerá tanto no grupo de controle quanto no grupo onde o experimento será executado.</li>
+<li>Introduza variáveis que reflitam eventos que ocorrem no mundo real, como por exemplo: servidores que travam, discos rígidos defeituosos, conexões de rede que são interrompidas, etc.</li>
+<li>Tente refutar cada hipótese procurando diferenças entre o &ldquo;sistema estável&rdquo;, o grupo de controle e o grupo experimental.</li>
+</ol>
+<p>Quanto mais difícil for causar impactos no &ldquo;sistema estável&rdquo;, mais confiança teremos no comportamento normal do sistema. Se uma fraqueza ou falha for descoberta, teremos uma nova meta de melhoria antes que esse comportamento se manifeste no sistema como um todo em produção.</p>
+<h2 id=princípios-avançados>PRINCÍPIOS AVANÇADOS</h2>
+<p>Os seguintes princípios descrevem uma aplicação ideal de Chaos Engineering (Engenharia do Caos), aplicando os processos de experimentação descritos acima. Seguir os princípios correlaciona-se fortemente com a confiança que podemos ter em um sistema distribuído em escala.</p>
+<h3 id=construa-uma-hipótese-em-torno-do-comportamento-do-sistema-estável>Construa uma hipótese em torno do comportamento do &ldquo;sistema estável&rdquo;</h3>
+<p>Foque na saída mensurável de um sistema, em vez de focar em atributos internos do sistema. As medições dessa saída em um curto período de tempo representam um caminho para se ter um &ldquo;sistema estável&rdquo;. A vazão geral do sistema, as taxas de erro, os percentis de latência, etc., todas podem ser métricas de interesse que representam o comportamento do &ldquo;sistema estável&rdquo;. Ao focar nos padrões de comportamento sistêmico durante os experimentos, o Chaos (Caos) verifica se o sistema funciona, em vez de tentar validar como ele funciona.comment il fonctionne.</p>
+<h3 id=modifique-variáveis-de-eventos-reais>Modifique variáveis de eventos reais</h3>
+<p>As variáveis do chaos (caos) são observadas por meio de eventos que ocorrem no mundo real. Priorize eventos por possível impacto ou frequência de ocorrência. Considere eventos que estão relacionados a: falhas de hardware, paradas de servidores, falhas de software, respostas malformadas, e também eventos que não são de falha, como um pico de tráfego ou um evento que envolva redimensionamento de capacidade. Qualquer evento capaz de gerar interrupções em um &ldquo;sistema estável&rdquo; tem potencial para ser variáveis de um experimento do Chaos (Caos).</p>
+<h3 id=execute-experimentos-em-produção>Execute experimentos em produção</h3>
+<p>Sistemas se comportam de maneira diferente dependendo do ambiente e dos padrões de tráfego. Como o comportamento da utilização pode mudar a qualquer momento, gerar amostras reais do tráfego é a única maneira de capturar de forma confiável o caminho da solicitação (request). Para garantir a autenticidade da forma como o sistema é utilizado e a relevância para o atual sistema implantado em produção, Chaos (Caos) dá preferência a experimentos realizados diretamente por meio de tráfego de produção controlado.</p>
+<h3 id=automatize-experimentos-para-execução-contínua>Automatize Experimentos para Execução Contínua</h3>
+<p>A execução manual de experimentos é trabalhosa e, em última instância, insustentável. Automatize as experiências e execute-as continuamente. Chaos Engineering constrói automações nos sistemas para orientar a orquestração e a análise dos experimentos.</p>
+<h3 id=minimizar-o-impacto>Minimizar o Impacto</h3>
+<p>Experimentação em produção tem o potencial de causar impactos desnecessários aos clientes finais. Embora deva existir um planejamento para eventuais impactos negativos de curta duração, é responsabilidade e obrigação do Engenheiro do Caos garantir que as consequências dos experimentos sejam minimizados, controlados e contidos.</p>
+<p>Chaos Engineering é uma prática poderosa que já está mudando a forma como o software é projetado e desenvolvido em algumas das maiores operações de TI em escala mundial. Enquanto outras práticas abordam velocidade e flexibilidade, o Caos aborda especificamente a incerteza sistêmica nesses sistemas distribuídos. Os Princípios do Caos oferecem confiança para inovar rapidamente em larga escala e proporciona aos clientes as experiências de alta qualidade que eles merecem.</p>
+<p>Junte-se às discussões em andamento sobre os Princípios do Chaos Engineering e sua aplicação no <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

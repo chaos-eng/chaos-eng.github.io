@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>KAOS MÜHENDİSLİĞİNİN PRENSİPLERİ - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/tr/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/tr class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=kaos-mühendisliğinin-prensipleri>KAOS MÜHENDİSLİĞİNİN PRENSİPLERİ</h1>
+<p>Son Güncelleme: Mayıs 2018</p>
+<p><em>Kaos Mühendisliği, canlı ortamda oluşabilecek çalkantılı koşullara dayanma kabiliyetine olan güveni artırmak için dağıtık bir sistem üzerinde deney yapma disiplinidir.</em></p>
+<p>Büyük ölçekli dağıtık sistemlerdeki gelişmeler, yazılım mühendisliği alanında oyunun kurallarını değiştirmekteler. Endüstri olarak, geliştirmenin esnekliğini ve dağıtımın sıklığını artıran değişiklikleri hızlı biçimde benimsiyoruz. Bu değişikliklerin getirdiği avantajları önemli bir soru takip ediyor: Canlı ortamlara sunduğumuz kompleks sistemlere ne kadar güvenebiliriz ?</p>
+<p>Dağıtık bir sistemdeki tüm servisler ayrı ayrı düzgün çalışıyor olsalar bile, bu servislerin arasındaki ilişkiler beklenmeyen sonuçlar doğurabilirler. Beklenmeyen sonuçlar, canlı ortamları etkileyen nadir fakat yıkıcı gerçek dünya olayları ile birleştiklerinde, dağıtık sistemler doğal olarak kaotik olurlar.</p>
+<p>Zayıflıkları, sistem çapında anormal davranışlara dönüşmeden önce tanımlamamız gerekir. Sistemsel zayıflıklar: servisin kullanım dışı kalması durumunda geri dönüş planlarının düzgün çalışmamasına sebep olan ayarlar; Yanlış ayarlanmış zaman aşımı süreleri sebebiyle oluşan yeniden deneme kuyrukları; Fazla trafikten kaynaklanan kesintiler; &ldquo;Tek hata noktası&rdquo; durumlarının üst üste gelmesi ve benzeri durumlar olarak ortaya çıkabilir. Müşterilerimizin canlı ortamlarını etkilemeden önce, en önemli zayıflıkları proaktif olarak ele almalıyız. Bu sistemlerdeki kaosu yönetmenin, artan esneklik ve hızın avantajlarını kullanmanın ve kompleksitelerine rağmen canlı ortamlarımıza olan güveni artırmanın bir yolunu bulmalıyız.</p>
+<p>Ampirik, sistem tabanlı bir yaklaşım, dağıtık sistemlerdeki kaosu ölçeklendirir ve bu sistemlerin gerçekçi koşullara dayanma becerisine olan güveni artırır. Bizler, dağıtık bir sistemin davranışlarını, kontrollü bir deney ile gözlemleyerek öğreniyoruz. Biz buna <em>Kaos Mühendisliği</em> diyoruz.</p>
+<h2 id=uygulamada-kaos>UYGULAMADA KAOS</h2>
+<p>Büyük Ölçekli Dağıtık sistemlerin belirsizliklerini özellikle ele almak için, Kaos Mühendisliği, sistemik zayıflıkları ortaya çıkarmak amaçlı deneylerin kolaylaştırılması olarak düşünülebilir. Bu deneyler dört adımdan oluşur:</p>
+<ol>
+<li>Normal davranış gösteren bir sistemin ölçülebilir durumunu &ldquo;Kararlı Çalışma Durumu&rdquo; olarak tanımlayın.</li>
+<li>Bu kararlı durumun hem kontrol grubunda hem de deney grubunda devam edeceğini varsayın.</li>
+<li>Çalışmayı durduran sunucular, arıza yapan sabit diskler, kesilen ağ bağlantıları vb. gerçek dünya olaylarını yansıtan değişkenleri tanımlayın.</li>
+<li>Kontrol grubu ile deney grubu arasındaki &ldquo;Kararlı Çalışma Durumu"nda bir farklılık arayarak varsayımınızı çürütmeye çalışın.</li>
+</ol>
+<p>İstikrarlı Durumu bozmak ne kadar zor ise, sistemin davranışına olan güvenimiz o kadar fazladır. Eğer bir zayıflık tespit edersek, bu zayıflık tüm sistem genelinde problem teşkil etmeden önce düzeltme yapmayı kendimize hedef belirlememiz gerekir.</p>
+<h2 id=ileri-düzey-prensipler>İLERİ DÜZEY PRENSİPLER</h2>
+<p>Aşağıdaki ilkeler, yukarıda tarif edilen deney süreçlerine uygulanan ideal bir Kaos Mühendisliği uygulamasını tanımlar. Bu ilkelerin izlenme derecesi, ölçeklendirilmiş bir sistemde sahip olabileceğimiz güven ile güçlü bir şekilde ilişkilidir.</p>
+<h3 id=kararlı-çalışma-durumu-üzerine-bir-hipotez-oluşturun>Kararlı Çalışma Durumu Üzerine Bir Hipotez Oluşturun</h3>
+<p>Sistemin iç öznitelikleri yerine bir sistemin ölçülebilir çıktısına odaklanın. Bu çıktının kısa bir süre içindeki ölçümleri, sistemin kararlı durumu için bir örnek oluşturur. Sistem genelindeki iş hacmi, hata oranları, gecikme yüzdeleri vb. kararlı durum davranışını temsil eden ölçütler olabilirler. Kaos, denemeler sırasında sistemik davranış kalıplarına odaklanarak, sistemin nasıl çalıştığını doğrulamaktan ziyade sistemin çalıştığını doğrular.</p>
+<h3 id=gerçek-dünya-olaylarını-çeşitlendirin>Gerçek Dünya Olaylarını Çeşitlendirin</h3>
+<p>Kaos değişkenleri gerçek dünya olaylarını yansıtır. Olayları ya potansiyel etki ya da tahmini sıklık ile önceliklendirin. Sunucuların çökmesi gibi donanımsal hatalar, hatalı cevap dönüşleri gibi yazılım hataları ve trafikte artış ya da ölçekleme problemi gibi hata olmayan olayları göz önünde bulundurun. Kararlı durumu bozabilecek herhangi bir olay, bir Kaos deneyinde potansiyel bir değişkendir.</p>
+<h3 id=canlı-ortamda-deneyler-yapın>Canlı Ortamda Deneyler Yapın</h3>
+<p>Sistemler, ortam ve trafik modellerine bağlı olarak farklı davranır. Kullanım davranışı her an değişebileceğinden, talep yoğunluğunu güvenilir şekilde yakalamanın tek yolu gerçek trafiği örneklemektir. Sistemin uygulandığı yöntemlerin gerçekliğini ve mevcut konuşlandırılmış sistemle alaka düzeyini garanti etmek için, Kaos, doğrudan canlı ortam trafiği üzerinde denemeler yapmayı tercih eder.</p>
+<h3 id=deneyleri-sürekli-çalışacak-şekilde-otomatize-edin>Deneyleri Sürekli Çalışacak Şekilde Otomatize Edin</h3>
+<p>Deneyleri manuel çalıştırmak, iş gücü ister ve sonuç olarak sürdürülemezdir. Deneyleri otomatikleştirin ve sürekli olarak çalıştırın. Chaos Engineering, hem orkestrasyon hem de analiz için sistemin otomatize edilmesini sağlar.</p>
+<h3 id=patlama-alanını-küçültün>Patlama Alanını Küçültün</h3>
+<p>Canlı ortamda deney yapmak gereksiz müşteri acılarına neden olma potansiyeline sahiptir. Bazı kısa vadeli olumsuz etkiler için bir tolerans payı ayırılması gerekliliğiyle birlikte, deneylerden kaynaklanan hasarların en aza indirilmesini ve içerilmesini sağlamak Kaos Mühendisi&rsquo;nin sorumluluğu ve yükümlülüğüdür.</p>
+<p>Kaos Mühendisliği, dünya çapındaki pek çok çok-büyük ölçekli operasyonda, yazılımın nasıl tasarlandığını değiştirmekte olan güçlü bir uygulamadır. Diğer metotlar hız ve esnekliğe hitap etmekte iken, Kaos, özellikle dağıtık sistemlerde sistemik belirsizliği ele alır. Kaos İlkeleri, kitlesel ölçeklerde hızlı bir şekilde yenilik yapmaya ve müşterilere hak ettikleri yüksek kaliteli deneyimleri vermek üzere sistemlere olan güveni artırmayı hedefler.</p>
+<p>Kaos İlkeleri ve bunların uygulamaları üzerine devam eden tartışmalara katılın Google Grubunda <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

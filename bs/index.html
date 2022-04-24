@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>OSNOVNA NAČELA INŽINJERINGA HAOSA - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/bs/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/bs class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=osnovna-načela-inžinjeringa-haosa>OSNOVNA NAČELA INŽINJERINGA HAOSA</h1>
+<p>Posljednje ažuriranje: Jan 2020.</p>
+<p><em>Inžinjering haosa je disciplina experimentisanja na sistemu da bi se izgradilo povjerenje u sposobnost sistema da izdrži nagle promjene pri korištenju u produkciji.</em></p>
+<p>Napredak velikih distribuiranih softverskih sistema mijenja igru ​​za softverski inženjering. Kao industrija, brzo prihvatamo prakse koje povećavaju fleksibilnost razvoja i brzinu implementacije. Ovo nameće slijedeće pitanje: Koliko povjerenja možemo imati u složene sisteme koje koristimo u produkciji?</p>
+<p>Čak i kada sve pojedinačne usluge u distribuiranom sistemu funkcionišu ispravno, interakcije između tih usluga mogu uzrokovati nepredvidive ishode. Nepredvidivi ishodi, sastavljeni od rijetkih, ali remetilačkih događaja iz stvarnog svijeta koji utječu na okruženja u produkciji, čine ove distribuirane sisteme inherentno haotičnim.</p>
+<p>Treba identifikovati slabosti prije nego što se pojave u neželjenom obliku širom sistema. Sistemske slabosti mogle bi biti u obliku: neispravnih rezervnih postavki kada usluga nije dostupna; preveliki pokušaji zapisa iz nepravilno podešenih vremenskih ograničenja; kvarovi zbog prezagušenog prometa; kaskadni otkazi kada se sruši samo jedan čvor; itd. Najznačajnije slabosti moraju se riješiti proaktivno, prije nego što utječu na kupce u produkciji. Potreban je način upravljanja haosom svojstvenim ovim sistemima, iskoristiti veću fleksibilnost i brzinu i imati povjerenja u sisteme u produkciji uprkos složenosti koju predstavljaju.</p>
+<p>Empirijski, sistemski zasnovan pristup rješavanja haosa u distribuiranim sistemima i izgradnja povjerenja u sistem da može izdržati opterećenja i napade u realnim uslovima. O ponašanju distribuiranog sistema učimo posmotrajući ga tokom kontrolisanog eksperimenta. Mi to nazivamo <em>Inžinjeringom haosa</em>.</p>
+<h2 id=haos-u-praksi>HAOS U PRAKSI</h2>
+<p>Da bi se konkretno pozabavilo nesigurnošću distribuiranih skaliranih sistema, Inžinjering haosa se može smatrati eksperimentom koji olakšava otkrivanje slabosti sistema. Ti eksperimenti imaju četiri koraka:</p>
+<ol>
+<li>Definisati &ldquo;stabilno stanje&rdquo; kao izlaz koji predstavlja normalno ponašanje.</li>
+<li>Pretpostavka da će se to stabilno stanje ostati i u kontrolnoj i u eksperimentalnoj grupi.</li>
+<li>Uvođenje promjenjivih koje odražavaju događaje iz stvarnog svijeta poput servera koji se ruše, hard diskova koji ne rade, mrežne veze koje su prekinute ili usporene i slično.</li>
+<li>Pokušaj opovrgavanja hipoteze tražeći razliku stabilnosti sistema između kontrolne i eksperimentalne grupe.</li>
+</ol>
+<p>Što je teže poremetiti stabilno stanje, to se više povjerenja ima u ponašanje sistema. Ako se otkrije slabost, sada se ima cilj za poboljšanje prije nego što se takvo ponašanje manifestuje u sistemu uopšte.</p>
+<h2 id=napredna-načela>NAPREDNA NAČELA</h2>
+<p>Sljedeća načela opisuju idealnu primjenu Inžinjeringa haosa, primijenjenu na gore opisane postupke eksperimentisanja. Stepen primjene ovih načela snažno je u korelaciji s povjerenjem koje se može imati u skaliranom distribuiranom sistemu.</p>
+<h3 id=izgradnja-hipoteze-o-stabilnom-ponašanju>Izgradnja hipoteze o stabilnom ponašanju</h3>
+<p>Skoncentrisati se na mjerljivi izlaz sistema, a ne na unutrašnje atribute sistema. Merenja tog izlaza tokom kratkog vremenskog perioda predstavljaju proxy za stabilno stanje sistema. Propusnost cjelokupnog sistema, stope grešaka, postotci kašnjenja itd., Sve bi to mogle biti mjerne vrijednosti koje predstavljaju ponašanje u stabilnom stanju. Usredsređujući se na sistemske obrasce ponašanja tokom eksperimenata, Haos potvrđuje da sistem radi, a ne pokušava da potvrdi kako funkcioniše.</p>
+<h3 id=različiti-događaji-iz-stvarnog-svijeta>Različiti događaji iz stvarnog svijeta</h3>
+<p>Promjenjive haosa odražavaju stvarna dešavanja. Prioritetno odrediti događaje bilo potencijalnim utjecajem ili procijenjenom učestalošću. Razmotriti događaje koji odgovaraju greškama hardvera poput servera koji umire, softverske kvarove poput nepravilnih odgovora i događaje koji to nisu, poput duha u prometu ili kod skaliranja. Svaki događaj koji može narušiti stabilno stanje potencijalna je promjenjiva u eksperimentu Haosa.</p>
+<h3 id=izvršiti-eksperimente-u-produkciji>Izvršiti eksperimente u produkciji</h3>
+<p>Sistemi se ponašaju različito ovisno o okruženju i obrascima prometa. Budući da se ponašanje korištenja može promijeniti u bilo kojem trenutku, uzorkovanje stvarnog prometa jedini je način pouzdanog hvatanja putanje zahtjeva. Kako bi garantovali istinitost načina na koji se sistem koristi i relevantnost za trenutni implementirani sistem, Haos snažno preferira eksperimentisanje direktno na proizvodnom prometu.</p>
+<h3 id=automatiziranje-eksperimenata-kako-bi-se-stalno-izvodili>Automatiziranje eksperimenata kako bi se stalno izvodili</h3>
+<p>Ručno pokretanje eksperimenata naporno je i na kraju neodrživo. Automatizirajte eksperimente i pustite ih da trče stalno. Inžinjering haosa ugrađuje automatizaciju u sistem kako bi pokrenuo i orkestraciju i analizu.</p>
+<h3 id=umanjiti-radijus-udara>Umanjiti radijus udara</h3>
+<p>Eksperimentisanje u produkciji može izazvati nepotrebne bolove kod kupaca. Iako mora postojati dopuštenje za kratkoročni negativni utjecaj, inženjer haosa je dužan osigurati da ispadi iz eksperimenata budu minimizirani i sadržani.</p>
+<p>Inžinjering haosa je snažna praksa koja već mijenja način na koji je softver dizajniran i oblikovan u nekim od najvećih operacija na svijetu. Kada se druge prakse bave brzinom i fleksibilnošću, Haos se posebno bavi sistemskom nesigurnošću u tim distribuiranim sistemima. Načela Haosa pružaju samopouzdanje za brzo uvođenje inovacija na golemoj skali i kupcima pružaju visokokvalitetno iskustvo koje zaslužuju.</p>
+<p>Pridružite se tekućoj raspravi o načelima haosa i njihovoj primjeni u Google grupi <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

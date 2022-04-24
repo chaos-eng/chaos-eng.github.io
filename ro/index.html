@@ -1,0 +1,82 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>Principiile ingineriei HAOS - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/ro/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/ro class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=principiile-ingineriei-haos>PRINCIPIILE INGINERIEI HAOS</h1>
+<p>Ultima actualizare: Ianuarie 2020</p>
+<p><em>Ingineria Haosului este disciplina experimentării pe un sistem pentru a consolida încrederea în capacitatea sistemului de a rezista condițiilor turbulente în mediu operațional.</em></p>
+<p>Creșterea fără precedent a sistemelor software distribuite la scară largă schimbă regulile jocului în tehnica modernă a calculatoarelor. Industria adoptă rapid tehnici care cresc agilitatea dezvoltării și viteza de desfășurare. Însă, după avantajele evidente ale noilor metodologii, apare o întrebare: Cât de încrezători suntem despre fiabilitatea sistemelor complexe pe care le punem în funcțiune?</p>
+<p>Chiar și atunci când fiecare serviciu individual dintr-un sistem distribuit funcționează corect, interacțiunea dintre aceste servicii poate duce la rezultate imprevizibile. Rezultatele imprevizibile sunt agravate de evenimente reale rare, dar distructive, care afectează mediul operațional și conferă sistemelor distribuite proprietăți haotice.</p>
+<p>Trebuie să determinăm punctele slabe ale sistemului înainte de a se revașa în defecțiuni la nivelul întregului sistem.</p>
+<p>Defecțiunile sistemice pot lua următoarele forme: configurarea incorectă a opțiunii de rezerva, dacă serviciul nu este disponibil; o serie de încercări repetate de conectare ca urmare a setărilor incorecte de pauze (timeout); întreruperi atunci când o dependență primește din aval prea mult trafic; erori în cascadă într-un singur punct de eșec (<a href=https://en.wikipedia.org/wiki/Single_point_of_failure>SPOF</a>), etc. Trebuie să eliminăm proactiv defectele cele mai semnificative înainte ca să afecteze clienții din production. Avem nevoie de modalități de a controla haosul inerent al acestor sisteme. Doar în acest fel vom reuși să realizăm pe deplin avantajele unei flexibilități și viteze mai mari și să derulăm cu încredere actualizări, indiferent de nivelul lor de complexitate.</p>
+<p>O abordare empirică, orientată către sistem, elimină haosul în sistemele distribuite la scară largă și creează încredere în capacitatea acestor sisteme de a rezista condițiilor din lumea reală. Studiem comportamentul unui sistem distribuit observându-l în timpul unui experiment controlat. Aceasta este ceea ce numim <em>Ingineria Haosului</em>.</p>
+<h2 id=haosul-în-practică>HAOSUL ÎN PRACTICĂ</h2>
+<p>Ca instrument de gestionare a incertitudinii sistemelor distribuite la scară largă, Ingineria Haos servește la facilitarea experimentelor pentru identificarea defectelor sistemice. Protocolul acestor experimente constă din patru etape:</p>
+<ol>
+<li>Începeți prin a defini o &ldquo;stare de echilibru&rdquo; ca o ieșire măsurabilă dintr-un sistem care indică un comportament normal.</li>
+<li>Presupunem că această stare de echilibru va continua atât în ​​grupul de control, cât și în grupul experimental.</li>
+<li>Introduceți variabile care reflectă evenimente reale, cum ar fi: servere care se prăbușeste, hard disk-uri rele, conexiuni de rețea încălcate etc.</li>
+<li>Încercați să respingeți ipoteza comparând starea stabilă a grupului de control și a grupului experimental.</li>
+</ol>
+<p>Cu cât este mai dificil să rupeți starea constantă, cu atât suntem mai siguri în fiabilitatea sistemului. Dacă se detectează slăbiciune, avem un obiectiv de îmbunătățire, care va preveni influența ulterioară a erorii asupra sistemului în ansamblu.</p>
+<h2 id=principii-avansate>PRINCIPII AVANSATE</h2>
+<p>Următoarele principii descriu aplicarea ideală a Ingineriei Haos aplicată proceselor experimentale descrise mai sus. Gradul de aderare la aceste principii se corelează cu gradul de încredere în operarea sistemelor distribuite la scară largă.</p>
+<h3 id=ipoteza-în-jurul-stării-de-echilibru>Ipoteza în jurul stării de echilibru</h3>
+<p>Concentrați-vă pe starea măsurabilă a sistemului, nu pe atributele interne ale sistemului. Măsurarea acestor indicatori pentru o perioadă scurtă de timp este o indicație a stării constante a sistemului. Randamentul total, procentul de erori, timpul de întârziere etc. - toate pot fi măsuri semnificative ale comportamentului durabil. Prin concentrarea pe comportamente sistemice în timpul experimentelor, abordarea Haos verifică dacă sistemul funcționează cu adevărat, în loc să încerce să verifice cum se întâmplă acest lucru.</p>
+<h3 id=alternati-evenimente-reale>Alternati evenimente reale</h3>
+<p>Variabilele haosului reflectă evenimente reale. Verificați evenimentele în funcție de gradul de impact potențial sau de frecvența preconizată a apariției. Luați în considerare evenimentele cauzate de defecțiunile hardware, cum ar fi eșecul serverului, defecțiuni ale software-ului, cum ar fi răspunsuri malformate și evenimente care nu au defecțiuni, precum abundente de trafic sau operațiuni de scalare. Orice eveniment care poate încălca o stare constantă este o variabilă potențială într-un experiment de haos.</p>
+<h3 id=faceți-experimente-în-mediul-de-dezvoltare>Faceți experimente în mediul de dezvoltare</h3>
+<p>Comportamentul sistemului depinde de mediu și de fluxul de date. Deoarece modul de utilizare a resurselor se poate schimba oricând, eșantionarea fluxului de date real este singura cale de a urmări în mod fiabil ruta de solicitare. Pentru a garanta autenticitatea funcționării sistemului și relevanța datelor, Haos preferă să se efectueze experimente direct pe traficul real.</p>
+<h3 id=automatizați-experimentele-pentru-a-rula-continuu>Automatizați experimentele pentru a rula continuu</h3>
+<p>Experimentele manuale sunt laborioase și, în cele din urmă, nu sunt de încredere. Automatizati experimentele și rulati-le tot timpul. Ingineria Haosului integrează automatizarea în sistem pentru a controla atât coordonarea actiunilor cât și analiza datelor.</p>
+<h3 id=minimizarea-zonei-afectate>Minimizarea zonei afectate</h3>
+<p>Experimentele în production pot dăuna utilizatorilor. Deși ne asumăm riscul de efecte negative pe termen scurt, inginerul Haos este responsabil pentru minimizarea eșecurilor și tulburărilor cauzate de experimente.</p>
+<p>Ingineria Haos este o practică eficientă care schimbă deja modul în care este planificat și dezvoltat software-ul la unele dintre cele mai mari întreprinderi din lume. În timp ce alte metode se ocupă de viteză și flexibilitate, Haos tratează în mod specific incertitudinea sistemică în aceste sisteme distribuite. Principiile haosului oferă încrederea necesară pentru a inova rapid pe scară largă și pentru a oferi clienților servicii de înaltă calitate.</p>
+<p>Alăturați-vă discuției despre principiile Haos și aplicarea lor în Google Group <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

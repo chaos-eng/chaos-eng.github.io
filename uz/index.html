@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>XAOS MUHANDISLIK PRINSIPLARI - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/uz/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/uz class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=xaos-muhandislik-prinsiplari>XAOS MUHANDISLIK PRINSIPLARI</h1>
+<p>So&rsquo;ngi marotaba yangilandi: 2018 May</p>
+<p><em>Xaos Muhandisligi bu tizimning turli xil (xato) sharoitlarga bardoshlilik imkoniyatlarini tekshiruvchi mashg&rsquo;ulot xisoblanadi</em></p>
+<p>Taqsimlangan dasturiy ta&rsquo;minotlar tizimini keng tarqalishi va rivojlanishi dasturiy ta&rsquo;minot muhandisligi uchun juda katta o&rsquo;zgarishlarni olib kelmoqda. Boshqa sohalardan farqli ravishda taqsimlangan dasturiy ta&rsquo;minontlar yangi usullarni tez o&rsquo;zlashtirib ularni tadbiq qila oladi. Shunday ekan juda bir muhim savol tug&rsquo;iladi: tadbiq qilinmoqchi bo&rsquo;lgan yangi usulni ishonchlilik darajasi qay darajada?</p>
+<p>Taqsimlangan tizimdagi barcha individual xizmatlar xatosiz ishlagan taqdirda ham, ushbu xizmatlar o&rsquo;rtasida o&rsquo;zaro ta&rsquo;sirlar oldindan bashorat qilib bo&rsquo;lmaydigan natijalarga olib kelishi mumkin. Bashorat qilib bo&rsquo;lmaydigan natijalar esa tizimni izdan chiqishi va xaotik holatga olib keltirishi mumkin.</p>
+<p>Shuning uchun zaifliklar tizim miqyosida g&rsquo;ayritabiiy holatlarni keltirib chiqarishidan oldin aniqlanishi kerak. Tizimning zaifliklari quyidagi shakllarda kelishi mumkin: xizmat mavjud bo&rsquo;lmaganda tiklash sozlamalarini kutilganday ishlamasligi; tizimni qayta-qayta so&rsquo;rovlar bilan to&rsquo;ldirib tashlash (bu holat so&rsquo;rovlar orasidagi interval vaqtni noto&rsquo;g&rsquo;ri belgilanishidan kelib chiqadi); tashqaridan kelayotgan trafiklar juda ham ko&rsquo;payib ketishi natijasidagi uzilishlar; bir qismni ishlamay qolishi natijasida kaskadli ravishda boshqa qismlarni ishdan chiqishi; va hokazo. Foydalanuvchilar ishlatadigan xizmatga chiqarishdan oldin eng muhim kamchiliklarini faol ravishda hal qilishimiz kerak. Ushbu turdagi xaos holatlarni aniqlash va bartaraf qilish uchun tizim kerak bo&rsquo;ladi.</p>
+<p>Taqsimlangan tizmlardagi xaos holatlarni bartaraf etish uchun empirik tizimli yondashuvdan foydalaniladi. Ya&rsquo;ni taqsimlangan tizmni boshqarilishi mumkin bo&rsquo;lgan tajriba ostida kuzatib natijalarni taxlil qilamiz. Bunday usul Xaos Muhandisligi deb ataladi.</p>
+<h2 id=amaliyotda-xaos>AMALIYOTDA XAOS</h2>
+<p>Taqsimlangan tizimlardagi noaniqliklarga murojat qilish uchun Xaos Muhandisligini bizga tajriba qilish uchun ko&rsquo;makdosh sifatida keladi deyishimiz mumkin. Bundan tajribalar to&rsquo;rt bosqichdan iborat:</p>
+<ol>
+<li>Boshlang&rsquo;ich &ldquo;Barqaror Holat&rdquo; ni belgilab, va bu holatdagi tizimning chiqishlaridagi natijani bilib olamiz.</li>
+<li>&ldquo;Barqaror Holat&rdquo; boshqaruv guruhi va tajriba guruhida shundayligicha davom etadi deb faraz qilamiz.</li>
+<li>Haqiqiy xizmat ko&rsquo;rsatishga joriy qilganimizda nozir bo&rsquo;lishi mumkin bo&rsquo;lgan notinchliklarni aks ettiruvchi o&rsquo;zgaruvchilarni tadbiq qilamiz. Masalan qo&rsquo;shni serverlarni ishdan chiqishi, qattiq disklarni ishdan chiqishi, tarmoqni uzilib qolishi kabilar.</li>
+<li>Boshqaruv guruhi va tajriba guruhidagi barqaror holatni farqlarini solishtirgan holda farazimizni inkor etishga harakat qiling.</li>
+</ol>
+<p>Barqaror Holatni buzish qiyinlashgan sari tizimning ishonchlilik ko&rsquo;rsatgichi oshib boradi. Agarda zaif tomonlar aniqlansa, bu zaifliklar baratar etilishga harakat qilinadi.</p>
+<h2 id=qoshimcha-prinsiplar>QO&rsquo;SHIMCHA PRINSIPLAR</h2>
+<p>Quyidagi printsiplar yuqorida tavsiflangan tajriba jarayonlarida qo&rsquo;llaniladigan Xaos Muhandisligining ideal qo&rsquo;llanilishini tavsiflaydi. Ushbu tamoyillarga qay darajada rioya qilishimiz bizning taqsimlangan tizimimizga bo&rsquo;lgan ishonchimiz darajasini belgilab beradi.</p>
+<h3 id=barqaror-holat-haqidagi-farazni-belgilash>Barqaror Holat haqidagi farazni belgilash</h3>
+<p>Tizimning ichki atributlariga emas, balki tizimning o&rsquo;lchanishi mumkin bo&rsquo;lgan chiqishiga e&rsquo;tibor bering. Qisqa vaqt ichida ushbu chiqish natijalarni o&rsquo;lchash tizimning barqarorlik holatini tasdiqlaydi. Tizimning umumiy ishlash qobiliyati, xatolar darajasi, kechikish foizi va boshqalar ko&rsquo;rsatkichlar tizimni barqarorlik holatini ifodalashi mumkin. Xaos muhandisligi tajribalar paytida systematik xatti-harakatlarga e&rsquo;tibor berib tizimni ishlayotganini kuzatadi holos (tizimni qanday ishlayotganini kuzatmaydi).</p>
+<h3 id=ozgaruvchan-hayotiy-hodisalar>O&rsquo;zgaruvchan Hayotiy Hodisalar</h3>
+<p>Xaos o&rsquo;zgaruvchilari hayotiy hodisalarni aks ettiradi. Hodisalarni potensial ta&rsquo;siri yoki hosil bo&rsquo;lish chastotasiga qarab darajasi belgilanadi. Hodisalar sifatida serverlarni ishdan chiqishi, dasturlarni xato ishlashi, traffikni birdaniga oshib ketishi kabi holatlarni belgilash mumkin. Barqaror holatni izdan chiqarishga qodir bo&rsquo;lgan har qanday hodisaga Xaos tajribasidagi o&rsquo;zgaruvchi sifatida qarashimiz mumkin.</p>
+<h3 id=tajribani-ishlab-chiqarishda-ishga-tushirish>Tajribani Ishlab Chiqarishda ishga tushirish</h3>
+<p>Albatta tajriba bo&rsquo;lgani uchun uni tajribaviy muhitda o&rsquo;tqazish havfsizliroqdir. Lekin shuni yodda tutish kerakki tajribaviy muhit haqiqiy ishlab chiqarishdagi muhitni to&rsquo;la aks eta olmaydi. Chunki ishlab chiqarishdagi kirib kelayotgan trafiklar hayotiy trafik bo&rsquo;lgani uchun ularni tajriba muhitida to&rsquo;lalikcha amalga oshirish qiyin masala. Shuning uchun Xaos muhandisligining talabi bu iloj qadar ishlab chiqarish muhitida tajriba o&rsquo;tqazish xisoblanadi.</p>
+<h3 id=uzluksiz-ishlash-uchun-tajribalarni-avtomatlashtirish>Uzluksiz Ishlash uchun Tajribalarni Avtomatlashtirish</h3>
+<p>Tajribani birma-bir odam ishtirokida o&rsquo;tkazish juda ko&rsquo;p mehnat talab qiladi. Tajribani avtomatlashtirib uzluksiz integrasiya tizimi qo&rsquo;shish kerak.</p>
+<h3 id=zarar-yetqazish-radiusini-kamaytirish>Zarar Yetqazish Radiusini Kamaytirish</h3>
+<p>Ishlab chiqarishda tajriba o&rsquo;tqazish xavfli va haqiqiy foydalanuvchiga zarar yetqazish ehtimoli mavjud. Qisqa muddatli salbiy ta&rsquo;sirni to&rsquo;lalikcha oldini olish mumkin emas. Shunday bo&rsquo;lsada tajriba davomida Xaos muhandisiga bu zararni kamaytirish majburiyati yuklatiladi.</p>
+<p>Xaos Muhandisligi juda kuchli amaliyotlardan birib bo&rsquo;lib, hozirgi kunda dasturiy ta&rsquo;minotning yaratilishi dunyo bo&rsquo;ylab katta miqyosda o&rsquo;zgartirmoqda. Boshqa turdagi amaliyotlar taqsimlangan tizimlardagi tezlik va moslashuvchanlik xususiyatlarga e&rsquo;tibor berayotgan bo&rsquo;lsa, Xaos muhandisligi tizimni noaniqliklarga bardoshliligini ta&rsquo;minlashga harakat qilyapti. Xaos prinsiplari katta miqyosadagi taqsimlangan dasturiy ta&rsquo;minotni tezlikda yaratib mijozlarga yuqori sifatli xizmat ko&rsquo;rsatishini ta&rsquo;minlaydi.</p>
+<p>Xaos Principlari va ularni qo&rsquo;llash haqidagi munozaralarni Google Groupdagi <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a> da ko&rsquo;rishingiz mumkin.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>A CHAOS ENGINEERING ALAPELVEI - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/hu/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/hu class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../es>es</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=a-chaos-engineering-alapelvei>A CHAOS ENGINEERING ALAPELVEI</h1>
+<p>Utolsó szerkesztés: 2018 Május</p>
+<p><em>A Chaos Engineering annak a tudománya, amikor kísérleteket végzünk a produkciós környezetben annak érdekében, hogy megbizonyosodjunk a rendszer hibatűrő képességéről különböző hibajelenségek esetén.</em></p>
+<p>A skálázható, elosztott szoftverrendszerek által elérhető előnyök megváltoztatták az egész szoftverfejlesztést. A teljes iparág felgyorsult, gyorsan képes adoptálni azokat a gyakorlatokat amelyek a fejlesztés rugalmasságát segítik, vagy az éles üzembe állítást meggyorsítják. Azonban ezek az előnyök további kérdéseket vetnek fel: Mennyire bízhatunk ezekben a komplex rendszerekben, amikor éles üzembe állítjuk?</p>
+<p>Ha egy elosztott rendszer összes független szolgáltatása funkcionálisan jól működik, akkor is előfordulhatnak kiszámíthatatlan kimenetelek a szolgáltatások közötti interakciók során. A kiszámíthatatlan események, kombinálva a ritka, de előforduló valós produkciós üzemzavarokkal azt eredményezik, hogy ezek az elosztott rendszerek természetükből adódóan kaotikusak.</p>
+<p>Nekünk kell azonosítanunk a rendszer gyengeségeit, mielőtt azok a teljes rendszert érintő rendellenességet okoznának. A rendszer gyengeségei különböző formában jelentkezhetnek: nem megfelelő fallback beállítások amikor egy szolgáltatás nem elérhető, nagy mennyiségű újrapróbálkozás nem megfelelő időtúllépés beállítások miatt, kimaradások, amikor a folyamatban egy kulcs komponens túlterhelődik, amikor a hibák tovább terjednek egy nem hibatűrő komponens meghibásodása miatt, stb. Proaktívan foglalkoznunk kell a legjellemzőbb gyengeségekkel, mielőtt azok az ügyfeleinket elérik a produkciós környezetben. Kezelnünk kell a rendszerekre jellemző káoszt, de egyúttal ki kell használnunk a rugalmasság, és a gyorsaság nyújtotta előnyöket, és biztosnak kell lennünk a produkciós környezetünk működésében, annak ellenére hogy mennyire komplexek tudnak lenni.</p>
+<p>Tapasztalati, rendszeralapú kísérletezés által ismerjük meg az okozott zűrt a skálázódó, elosztott rendszerekben, és ezáltal növeljük a magabiztosságunkat abban, hogy ezek a rendszerek valóban ellenállnak az előforduló hibáknak. Megismerjük az elosztott rendszer viselkedését, azáltal hogy egy kontrollált kísérletben figyeljük meg. Ezt hívjuk Chaos Engineering-nek.</p>
+<h2 id=chaos-a-gyakorlatban>CHAOS A GYAKORLATBAN</h2>
+<p>Hogy kezeljük a bizonytalanságot egy elosztott skálázott rendszer esetén, a Chaos Engineering-re tekinthetünk úgy, mint a rendszerszintű gyengeségek feltárására irányuló kísérletek végrehajtása. Ezek a kísérletek négy lépésből állnak:</p>
+<ol>
+<li>Kezdjük a &ldquo;nyugalmi állapot&rdquo; definiálásával, amikor a rendszer valamilyen mérhető tulajdonságát tekintjük normál működésnek.</li>
+<li>Feltételezzük, hogy a nyugalmi állapot megmarad mind a kísérleti és a kontroll csoportban.</li>
+<li>Idézzünk elő olyan eseményeket, amelyek valós eseményeket szimulálnak, mint szerver összeomlás, merevlemez rendellenesség, gyenge hálózati kapcsolat, stb.</li>
+<li>Próbáljuk cáfolni az eredeti feltételezésünket úgy, hogy megfigyeljük hogy van-e eltérés a nyugalmi állapotban a kontroll és a kísérleti csoport között.</li>
+</ol>
+<p>JMinél nehezebb megzavarni a nyugalmi állapotot, annál biztosabbak vagyunk a rendszerünk működésével kapcsolatban. Ha felfedezünk egy gyengeséget, akkor a célunk, hogy fejlesszük, javítsuk ezt, mielőtt ez a jelenség a rendszert szélesebb körben érintené.</p>
+<h2 id=haladó-irányelvek>HALADÓ IRÁNYELVEK</h2>
+<p>A következő irányelvek a Chaos Engineering ideális alkalmazását mutatják be, a fent leírt kísérletezési folyamatok alkalmazására vonatkozólag. Ezen alapelvek megvalósításának mértéke erősen korrelál azzal, hogy mennyire vagyunk biztosak az elosztott skálázódó rendszerünk működésében.</p>
+<h3 id=a-nyugalmi-állapot-hipotézis-felállítása>A nyugalmi állapot hipotézis felállítása</h3>
+<p>Inkább a rendszer egyik mérhető kimenetére kell fókuszálni, mint egy belső rendszer jellemzőre. Ennek a kimenetnek a rövid időn keresztül történő mérései mutatják a rendszer nyugalmi állapotát. A rendszer átviteli teljesítménye, hibaarány, késleltetési szintek, stb. Lehet olyan metrika, amely a rendszer nyugalmi állapotát mutatja. Azzal, hogy a rendszerszintű viselkedésre koncentrálunk a kísérlet alatt, a káosz azt vizsgálja, hogy a rendszer működik, és nem azt próbálja ellenőrizni, hogy hogyan működik.</p>
+<h3 id=változatos-valós-események>Változatos valós események</h3>
+<p>A Káosz változók különböző valós eseményeket fejeznek ki. Priorizáld az eseményeket vagy a potenciális hatásuk, vagy az előfordulásuk gyakorisága alapján. Vedd számításba az olyan eseményeket is, amelyek hardver meghibásodást jelentenek, szerver összeomlással, szoftver hibákat hibás válaszokkal, és az olyan, nem feltétlenül hibás eseményeket, mint például egy hirtelen jött nagy terhelés, vagy skálázódás. Minden olyan esemény, amely képes megzavarni a rendszer nyugalmi állapotát, az egy potenciális tényező egy Káosz kísérletben.</p>
+<h3 id=a-produkciós-környezetben-kísérletezz>A produkciós környezetben kísérletezz</h3>
+<p>A rendszerek különbözőképpen viselkednek környezettől és terheléstől függően. Mivel a rendszer igénybevétele bármelyik pillanatban változhat, ezért a valós terhelés minta az egy egyetlen megbízható módszer a rendszerhez érkező kérések megfigyelésére. Hogy garantálva legyen az, hogy a rendszer hitelesen viselkedik, és ez az aktuálisan telepített rendszerre vonatkozzon, a Chaos engineering erősen javasolja, hogy a kísérleteket közvetlenül a produkciós forgalmon végezzük.</p>
+<h3 id=automatizáld-a-kísérleteket-hogy-folyamatosan-futtathatók-legyenek>Automatizáld a kísérleteket, hogy folyamatosan futtathatók legyenek</h3>
+<p>A kísérletek manuális futtatása nagyon munkaigényes, és nehezen fenntartható. Automatizáld ezeket a kísérleteket, és folyamatosan futtasd őket. A Chaos Engineering automatizálásával fejlődni fog a rendszer telepítése és tesztelése is.</p>
+<h3 id=minimalizáld-a-hatókört>Minimalizáld a hatókört</h3>
+<p>Az éles környezetben való kísérletezés okozhat ügyfél elégedetlenséget is. Rövid ideig tartó negatív hatások előfordulhatnak, de az a Chaos engineer hatásköre és felelőssége, hogy a kísérletekkel járó üzletmenet kiesések a lehető legalacsonyabbak legyenek.</p>
+<p>A Chaos Engineering egy jó gyakorlat, ami már most megváltoztatta a szoftvertervezést, és megvalósítást a világ legnagyobb méretű rendszereinél. Míg más módszertanok a fejlesztés rugalmasságát és felgyorsítását célozzák meg, a Chaos engineering kifejezetten az elosztott rendszerek bizonytalanságával foglalkozik. A Chaos Engineering alapelvei segítenek a nagy léptékű, gyors innovációkkal járó bizonytalanságot kezelni, annak érdekében hogy az ügyfelek magas színvonalú kiszolgálásban részesüljenek.</p>
+<p>Csatlakozz a Chaos Engineering alapelveiről és annak alkalmazásáról szóló beszélgetésekhez Google Csoportba <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
