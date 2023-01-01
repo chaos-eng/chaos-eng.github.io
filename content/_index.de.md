@@ -7,7 +7,7 @@ draft = false
 # PRINZIPIEN DES CHAOS ENGINEERINGS
 Letzte Aktualisierung: März 2019
 
-*Chaos Engineering führt Experimente auf einem verteilten System durch, um Vertrauen in das System aufzubauen auch unter widrigen Umständen in der Produktivumgebung zu bestehen.*
+*Chaos Engineering führt Experimente auf einem System durch, um Vertrauen in das System aufzubauen auch unter widrigen Umständen in der Produktivumgebung zu bestehen.*
 
 Die Fortschritte in verteilten und hoch-skalierten Software-Systemen verändern die Spielregeln im Software Engineering. Die IT-Industrie übernimmt schnell Methoden, um die Flexibilität in der Software-Entwicklung oder die Geschwindigkeit von Deployments zu erhöhen. Aus diesen Vorteilen erwächst eine dringend zu beantwortende Frage: Wie sehr können wir dem System vertrauen, das wir in die Produktivumgebung eingespielt haben?
 
