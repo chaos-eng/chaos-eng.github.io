@@ -34,7 +34,7 @@ Os seguintes princípios descrevem uma aplicação ideal de Chaos Engineering (E
 
 ### Construa uma hipótese em torno do comportamento do "sistema estável"
 
-Foque na saída mensurável de um sistema, em vez de focar em atributos internos do sistema. As medições dessa saída em um curto período de tempo representam um caminho para se ter um "sistema estável". A vazão geral do sistema, as taxas de erro, os percentis de latência, etc., todas podem ser métricas de interesse que representam o comportamento do "sistema estável". Ao focar nos padrões de comportamento sistêmico durante os experimentos, o Chaos (Caos) verifica se o sistema funciona, em vez de tentar validar como ele funciona.comment il fonctionne.
+Foque na saída mensurável de um sistema, em vez de focar em atributos internos do sistema. As medições dessa saída em um curto período de tempo representam um caminho para se ter um "sistema estável". A vazão geral do sistema, as taxas de erro, os percentis de latência, etc., todas podem ser métricas de interesse que representam o comportamento do "sistema estável". Ao focar nos padrões de comportamento sistêmico durante os experimentos, o Chaos (Caos) verifica se o sistema funciona, em vez de tentar validar como ele funciona.
 
 ### Modifique variáveis de eventos reais
 
