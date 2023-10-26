@@ -5,7 +5,7 @@ draft = false
 +++
 
 # PRINCIPLES OF CHAOS ENGINEERING
-Last Update: 2023 October ([changes](https://github.com/chaos-eng/chaos-eng.github.io/pull/23/files))
+Last Update: 2023 October ([changes](https://github.com/chaos-eng/chaos-eng.github.io/pull/62/files))
 
 *Chaos Engineering is the discipline of experimenting on a system in order to build confidence in the system’s capability to withstand turbulent conditions in production.*
 
