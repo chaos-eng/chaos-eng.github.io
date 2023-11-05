@@ -26,7 +26,7 @@ Hogy kezeljük a bizonytalanságot egy elosztott skálázott rendszer esetén, a
 3. Idézzünk elő olyan eseményeket, amelyek valós eseményeket szimulálnak, mint szerver összeomlás, merevlemez rendellenesség, gyenge hálózati kapcsolat, stb.
 4. Próbáljuk cáfolni az eredeti feltételezésünket úgy, hogy megfigyeljük hogy van-e eltérés a nyugalmi állapotban a kontroll és a kísérleti csoport között.
 
-JMinél nehezebb megzavarni a nyugalmi állapotot, annál biztosabbak vagyunk a rendszerünk működésével kapcsolatban. Ha felfedezünk egy gyengeséget, akkor a célunk, hogy fejlesszük, javítsuk ezt, mielőtt ez a jelenség a rendszert szélesebb körben érintené.
+Minél nehezebb megzavarni a nyugalmi állapotot, annál biztosabbak vagyunk a rendszerünk működésével kapcsolatban. Ha felfedezünk egy gyengeséget, akkor a célunk, hogy fejlesszük, javítsuk ezt, mielőtt ez a jelenség a rendszert szélesebb körben érintené.
 
 ## HALADÓ IRÁNYELVEK
 
