@@ -1,6 +1,6 @@
 +++
 title = "DE PRINCIPES VAN CHAOS ENGINEERING"
-date = 2023-12-04T16:25:57+01:00
+date = 2023-12-03T16:25:57+02:00
 draft = false
 +++
 
