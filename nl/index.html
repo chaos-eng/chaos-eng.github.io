@@ -1,0 +1,80 @@
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.91.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>DE PRINCIPES VAN CHAOS ENGINEERING - Principles of chaos engineering</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<meta name=keywords content>
+<link rel=canonical href=https://principlesofchaos.org/nl/>
+<link rel=stylesheet type=text/css href=https://principlesofchaos.org/css/combined-min.css>
+</head>
+<body>
+<div class=site-wrap>
+<header class="site-header px2 px-responsive">
+<div class="mt2 wrap">
+<div class=measure>
+<a href=https://principlesofchaos.org/nl class=site-title>Principles of chaos engineering</a>
+<nav class="site-nav right">
+<a href=../en>en</a><a href=../ar>ar</a><a href=../bs>bs</a><a href=../cz>cz</a><a href=../de>de</a><a href=../es>es</a><a href=../fa>fa</a><a href=../fr>fr</a><a href=../hi>hi</a><a href=../hu>hu</a><a href=../it>it</a><a href=../ja>ja</a><a href=../ko>ko</a><a href=../nl>nl</a><a href=../pl>pl</a><a href=../pt>pt</a><a href=../ro>ro</a><a href=../ru>ru</a><a href=../sr>sr</a><a href=../tr>tr</a><a href=../ua>ua</a><a href=../uz>uz</a><a href=../zh>zh</a>
+</form>
+<a href=https://github.com/chaos-eng/chaos-eng.github.io/><img style=position:absolute;top:0;right:0;border:0 src=https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png alt="Fork me on GitHub"></a>
+</nav>
+<div class=clearfix></div>
+</div>
+</div>
+</header>
+<div class="post p2 p-responsive wrap" role=main>
+<div class=measure>
+<article class=post-content>
+<h1 id=de-principes-van-chaos-engineering>DE PRINCIPES VAN CHAOS ENGINEERING</h1>
+<p>Laatst bijgewerkt: december 2023</p>
+<p><em>Chaos Engineering is het vakgebied dat zich bezighoudt met het uitvoeren van experimenten op een systeem met als doel vertrouwen te creëren in het vermogen van het systeem om turbulente productieomstandigheden te kunnen doorstaan.</em></p>
+<p>De spelregels voor softwareontwikkeling veranderen als gevolg van ontwikkelingen op het gebied van grootschalige, gedistribueerde softwaresystemen. De IT-industrie zet voortdurend nieuwe methoden in om zowel de flexibiliteit van softwareontwikkeling als de doorloopsnelheid van deployments te verhogen. Deze veranderingen roepen een dringende vraag op: hoeveel vertrouwen kunnen we hebben in de complexe systemen die we in productie nemen? Zelfs wanneer alle afzonderlijke services in een gedistribueerd systeem goed functioneren, kan de interactie tussen deze services onvoorspelbare uitkomsten opleveren. Deze onverwachte resultaten, verergerd door zeldzame, maar ontwrichtende gebeurtenissen in productie, maken gedistribueerde systemen inherent chaotisch.</p>
+<p>We moeten zwakke plekken in het systeem identificeren voordat ze zich manifesteren als systeem-breed afwijkend gedrag. Zwakke punten in het systeem kunnen verschillende vormen aannemen zoals: onjuiste fallback-instellingen als een service niet beschikbaar is; ‘retry storms’ door verkeerd ingestelde time-outs, storingen als gevolg van overbelaste afhankelijkheden of kettingreacties in het geval een single point of failure faalt. Het is belangrijkste proactief de zwakke punten aan te pakken voordat onze klanten er in productie hinder van ondervinden. We hebben een methode nodig om de inherente chaos in deze systemen te beheersen, zodat we kunnen profiteren van de toenemende flexibiliteit en snelheid, terwijl toch vertrouwen houden in onze complexe productiesystemen.</p>
+<p>Een empirische, op systemen gebaseerde aanpak, richt zich op de chaos in grootschalige gedistribueerde systemen en bouwt vertrouwen op in het vermogen van die systemen om realistische omstandigheden aan te kunnen. We leren over het gedrag van een gedistribueerd systeem door het te observeren tijdens een gecontroleerd experiment. Dit noemen we <em>Chaos Engineering</em>.</p>
+<h2 id=chaos-de-praktijk>CHAOS DE PRAKTIJK</h2>
+<p>Om specifiek de onzekerheid van gedistribueerde systemen op schaal aan te pakken, kan Chaos Engineering worden gezien als het faciliteren van experimenten om zwakke punten in het systeem bloot te leggen. Deze experimenten bestaan uit vier stappen:</p>
+<ol>
+<li>Begin door de stabiele situatie te definiëren als een meetbare output die het normale gedrag van het systeem beschrijft.</li>
+<li>Formuleer de hypothese dat zowel de controlegroep als de experimentele groep in deze stabiele situatie blijven.</li>
+<li>Introduceer variabelen die echte gebeurtenissen in productie weerspiegelen, zoals servers die crashen, harde schijven die falen, netwerkverbindingen die worden verbroken, etc.</li>
+<li>Probeer de hypothese te weerleggen door te zoeken naar een verschil in de stabiele situatie tussen de controlegroep en de experimentele groep.</li>
+</ol>
+<p>Hoe lastiger het is om een systeem uit de stabiele toestand te halen, des te meer vertrouwen we hebben in het gedrag van het systeem. Mochten we een zwak punt ontdekken, dan kunnen we dit nu doelgericht aanpakken voordat het gedrag zich manifesteert in het hele systeem.</p>
+<h2 id=geavanceerde-principes>GEAVANCEERDE PRINCIPES</h2>
+<p>De volgende principes beschrijven een ideale toepassing van Chaos Engineering, gebaseerd op de bovenstaande processen. De mate waarin deze principes worden nagestreefd, hangt sterk af van de mate van vertrouwen die we hebben in een gedistribueerd systeem op schaal.</p>
+<h3 id=formuleer-een-hypothese-rond-het-gedrag-in-de-stabiele-situatie>Formuleer een hypothese rond het gedrag in de stabiele situatie</h3>
+<p>Richt je op de meetbare output, in plaats van de interne eigenschappen van het systeem. Metingen van die output gedurende een korte periode vormen een indicatie voor de stabiele situatie van het systeem. De totale verwerkingscapaciteit van het systeem, foutpercentages, reactietijden etc. kunnen allemaal interessante metingen zijn voor het beschrijven van de statiele situatie. Door tijdens experimenten te focussen op systemische gedragspatronen, verifieert Chaos Engineering dat het systeem werkt, maar het valideert niet hoe het systeem werk.</p>
+<h3 id=varieer-met-realistische-gebeurtenissen>Varieer met realistische gebeurtenissen</h3>
+<p>Chaosvariabelen weerspiegelen daadwerkelijk optredende gebeurtenissen. Geef prioriteit aan gebeurtenissen op basis van hun potentiële impact of geschatte frequentie. Overweeg gebeurtenissen die overeenkomen met hardware storingen zoals het uitvallen van servers, softwarestoringen zoals corrupte netwerk responses, maar ook gebeurtenissen die niet veroorzaakt worden door een storing zoals een piek in het verkeer of opschalen van de capaciteit. Elke gebeurtenis die mogelijke de stabiele situatie verstoort, is een potentiële variabele in een Chaos-experiment.</p>
+<h3 id=experimenteer-in-productie>Experimenteer in productie</h3>
+<p>Systemen gedragen zich verschillend afhankelijk van de omgeving en netwerkverkeer. Aangezien het typische gebruik van het systeem ieder moment kan veranderen, is het observeren van productieverkeer de enige betrouwbare manier om het pad van een request door het systeem vast te leggen. Om ervoor te zorgen dat het systeem realistisch wordt belast en om relevant te zijn voor het huidige productiesysteem, geeft Chaos Engineering er sterk de voorkeur aan experimenten uit te voeren met productieverkeer.</p>
+<h3 id=automatiseer-experimenten-en-voer-ze-continu-uit>Automatiseer experimenten en voer ze continu uit</h3>
+<p>Handmatig uitvoeren van experimenten is arbeidsintensief en uiteindelijk onhoudbaar. Automatiseer de experimenten en voer ze continu uit. Chaos Engineering bouwt automatisering in het systeem om het aansturen en analyseren van experimenten te verbeteren.</p>
+<h3 id=minimaliseer-blast-radius>Minimaliseer <em>Blast Radius</em></h3>
+<p>Experimenteren in productie kan onnodige problemen bij klanten te veroorzaken. Hoewel er rekening moet worden gehouden met beperkte negatieve impact op de korte termijn, is het de verantwoordelijkheid en verplichting van de Chaos Engineer om ervoor te zorgen dat de gevolgen van experimenten minimaal en beperkt zijn.</p>
+<p>Chaos Engineering is een effectieve methode die nu al de manier verandert waarop enkele van de grootste bedrijven ter wereld software ontwerpen en ontwikkelen. Waar andere methodes zich richten op snelheid en flexibiliteit, pakt Chaos Engineering specifiek de systemische onzekerheid in gedistribueerde systemen aan. De principes van Chaos Engineering geven vertrouwen om snel te op grote schaal te innoveren en klanten de hoge kwaliteitservaringen te geven die ze verdienen.</p>
+<p>Doe mee aan de voortdurende discussie over de Principes van Chaos Engineering en hun toepassing in de <a href=https://groups.google.com/forum/#!forum/chaos-community>Chaos Community</a>.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class="p2 wrap">
+<div class="measure mt1 center">
+<nav class="social-icons icons">
+<a class="fa fa-rss rss" href=../index.xml></a>
+</nav>
+<small>
+Powered by <a href=http://gohugo.io/ target=_blank>Hugo</a> & <a href=https://github.com/azmelanar/hugo-theme-pixyll target=_blank>Pixyll</a>
+</small>
+</div>
+</div>
+</footer>
+<script src=../js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
