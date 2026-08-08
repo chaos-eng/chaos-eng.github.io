@@ -1,7 +1,7 @@
 {{- if hugo.IsMultilingual -}}
-{{- range $lang := .Site.Languages -}}
+{{- range hugo.Sites -}}
 
-<a href="/{{ $lang }}">{{ $lang }}</a>
+<a href="{{ .Home.RelPermalink }}">{{ .Language.Name }}</a>
 
 {{- end -}}
 {{- end -}}
